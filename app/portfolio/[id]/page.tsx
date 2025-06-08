@@ -65,7 +65,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
         <div className="container mx-auto px-4">
           <Link
             href="/portfolio"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 transition-colors"
+            className="inline-flex items-center text-[#A89A7D] hover:text-[#8F8675] dark:text-[#BFB399] dark:hover:text-[#D8CFBC] mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Portfolio
@@ -78,12 +78,12 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   {project.category}
                 </Badge>
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-4">{project.title}</h1>
-                <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">{project.description}</p>
+                <p className="text-xl text-[#A89A7D] dark:text-[#BFB399] leading-relaxed">{project.description}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="flex items-center space-x-3">
-                  <User className="w-5 h-5 text-blue-600" />
+                  <User className="w-5 h-5 text-[#A89A7D] dark:text-[#BFB399]" />
                   <div>
                     <p className="text-sm text-gray-500">Client</p>
                     <p className="font-medium text-gray-900 dark:text-white">{project.client}</p>
@@ -91,7 +91,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <Calendar className="w-5 h-5 text-blue-600" />
+                  <Calendar className="w-5 h-5 text-[#A89A7D] dark:text-[#BFB399]" />
                   <div>
                     <p className="text-sm text-gray-500">Year</p>
                     <p className="font-medium text-gray-900">{project.year}</p>
@@ -99,7 +99,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 </div>
               </div>
 
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+              <Button className="bg-[#A89A7D] hover:bg-[#8F8675] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white transition-colors duration-300">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 View Live Project
               </Button>
@@ -203,7 +203,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   <div className="space-y-2">
                     {project.tools.map((tool, index) => (
                       <div key={index} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                        <div className="w-2 h-2 bg-[#A89A7D] dark:bg-[#BFB399] rounded-full"></div>
                         <span className="text-gray-700 dark:text-gray-300">{tool}</span>
                       </div>
                     ))}
@@ -216,11 +216,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-20 bg-[#E3DCD5] dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <Card className="max-w-4xl mx-auto border-0 shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-12 text-center">
-              <div className="text-4xl text-blue-600 mb-6">"</div>
+              <div className="text-4xl text-[#A89A7D] dark:text-[#BFB399] mb-6">"</div>
               <blockquote className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6 italic">
                 {project.testimonial.text}
               </blockquote>
@@ -234,7 +234,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
       </section>
 
       {/* Next Project CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-[#857F75] dark:bg-[#1A1A1A] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
@@ -242,7 +242,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/#contact">
-              <Button size="lg" variant="secondary" className="px-8 py-3 rounded-full">
+              <Button size="lg" className="bg-[#A89A7D] hover:bg-[#8F8675] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white px-8 py-3 rounded-full transition-colors duration-300">
                 Get In Touch
               </Button>
             </Link>
@@ -250,7 +250,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
               <Button
                 size="lg"
                 variant="outline"
-                className="px-8 py-3 rounded-full border-white text-white hover:bg-white hover:text-blue-600"
+                className="px-8 py-3 rounded-full border-white dark:border-[#857F75] text-[#A89A7D] dark:text-[#BFB399] hover:bg-white dark:hover:bg-[#857F75]/30 dark:hover:text-[#BFB399] transition-colors duration-300"
               >
                 View More Projects
               </Button>

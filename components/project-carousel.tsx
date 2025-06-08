@@ -66,21 +66,23 @@ export function ProjectCarousel() {
 
   return (
     <div className="relative w-full mx-auto">
-      <Card className="border-0 shadow-2xl overflow-hidden bg-white/80 backdrop-blur-sm w-full">
-        <div className="relative">
+      <Card className="border-0 shadow-2xl overflow-hidden bg-[#1A1A1A] w-full">
+        <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center bg-[#1A1A1A]">
           <Image
             src={featuredProjects[currentIndex].image || "/placeholder.svg"}
             alt={featuredProjects[currentIndex].title}
             width={600}
             height={400}
-            className="w-full h-[70dvh] object-cover"
+            className="w-full h-full object-cover"
+            style={{ maxHeight: '100%' }}
+            priority
           />
 
           {/* Navigation Buttons */}
           <Button
             variant="ghost"
             size="lg"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#E3DCD5] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#E3DCD5] hover:bg-[#A89A7D]/80 text-[#A89A7D] rounded-full p-3 shadow-lg z-20"
             onClick={goToPrevious}
           >
             <ChevronLeft className="w-6 h-6" />
@@ -89,17 +91,17 @@ export function ProjectCarousel() {
           <Button
             variant="ghost"
             size="lg"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#E3DCD5] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#E3DCD5] hover:bg-[#A89A7D]/80 text-[#A89A7D] rounded-full p-3 shadow-lg z-20"
             onClick={goToNext}
           >
             <ChevronRight className="w-6 h-6" />
           </Button>
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
           {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10">
             <div className="text-sm opacity-80 mb-1">
               {featuredProjects[currentIndex].category}
             </div>
@@ -119,14 +121,14 @@ export function ProjectCarousel() {
       </Card>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center space-x-2 mt-6">
+      <div className="flex justify-center space-x-2 mt-6 mb-2">
         {featuredProjects.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? "bg-blue-600 w-8"
-                : "bg-gray-300 hover:bg-gray-400"
+                ? "bg-[#A89A7D] w-8"
+                : "bg-gray-300 hover:bg-[#BFB399]"
             }`}
             onClick={() => setCurrentIndex(index)}
           />

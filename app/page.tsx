@@ -101,7 +101,7 @@ export default function HomePage() {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <span className="block">Tirtha</span>
-                  <span className="block bg-gradient-to-r from-[#000000] via-[#BFB399] to-[#A89A7D] bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-[#000000] via-[#BFB399] to-[#A89A7D] dark:from-[#E3DCD5] dark:via-[#BFB399] dark:to-[#A89A7D] bg-clip-text text-transparent">
                     Jain
                   </span>
                 </h1>
@@ -111,8 +111,7 @@ export default function HomePage() {
                   style={{ animationDelay: "0.4s" }}
                 >
                   <p className="text-2xl lg:text-3xl text-gray-700 dark:text- font-light">
-                    Graphic Designer &{" "}
-                    <br />
+                    Graphic Designer & <br />
                     <span className="bg-[#A89A7D] bg-clip-text text-transparent font-medium">
                       Creative Visionary
                     </span>
@@ -133,7 +132,7 @@ export default function HomePage() {
                 <Link href="/portfolio">
                   <Button
                     size="lg"
-                    className="group relative overflow-hidden  text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500"
+                    className="group relative overflow-hidden bg-[#A89A7D] hover:bg-[#8F8675] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-300"
                   >
                     <span className="relative flex items-center">
                       View My Work
@@ -148,9 +147,9 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="group px-10 py-4 rounded-full text-lg font-medium border-2 border- hover:border-[#A89A7D] transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="group px-10 py-4 rounded-full text-lg font-medium border-2 border-gray-300 dark:border-[#857F75] hover:border-[#A89A7D] dark:hover:border-[#A89A7D] transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
-                    <span className="group-hover:bg-[#A89A7D] bg-clip-text text-black transition-all duration-300">
+                    <span className="group-hover:text-[#A89A7D] dark:text-white dark:group-hover:text-[#BFB399] transition-all duration-300">
                       Get In Touch
                     </span>
                   </Button>
@@ -172,7 +171,7 @@ export default function HomePage() {
                 </div>
                 <div className="w-px h-12 bg-gradient-to-b from-transparent via- to-transparent"></div>
                 <div className="text-center">
-                <div className="text-2xl font-bold bg-[#A89A7D] bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-[#A89A7D] bg-clip-text text-transparent">
                     30+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -181,7 +180,7 @@ export default function HomePage() {
                 </div>
                 <div className="w-px h-12 bg-gradient-to-b from-transparent via- to-transparent"></div>
                 <div className="text-center">
-                <div className="text-2xl font-bold bg-[#A89A7D] bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-[#A89A7D] bg-clip-text text-transparent">
                     15+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
@@ -205,9 +204,9 @@ export default function HomePage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gradient-to-b from-slate-200 to-neutral-600 rounded-full mt-2 animate-pulse"></div>
+        <div className="absolute bottom-4 md:bottom-2 lg:bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-[#A89A7D] rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-[#A89A7D] rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
@@ -217,10 +216,10 @@ export default function HomePage() {
       {/* Services Section */}
       <section
         id="services"
-        className="py-20 bg-gradient-to-br from-slate-50 to-neutral-50 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-slate-50 to-neutral-50 dark:from-gray-900 dark:to-gray-950 relative overflow-hidden"
       >
         {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-slate-200 to-neutral-200 rounded-full blur-3xl opacity-20 -translate-y-48 translate-x-48"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-slate-200 to-neutral-200 dark:from-[#857F75]/20 dark:to-[#A89A7D]/10 rounded-full blur-3xl opacity-20 -translate-y-48 translate-x-48"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -233,7 +232,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {services.map((service, index) => (
               <Card
                 key={index}
@@ -264,8 +263,8 @@ export default function HomePage() {
               Featured <span className="text-[#A89A7D]">Portfolio</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Thoughtfully crafted designs that blend form and function
-              to create meaningful experiences.
+              Thoughtfully crafted designs that blend form and function to
+              create meaningful experiences.
             </p>
           </div>
 
@@ -337,7 +336,7 @@ export default function HomePage() {
                       ))}
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -350,17 +349,17 @@ export default function HomePage() {
 
           <div className="text-center">
             <Link href="/portfolio">
-              <Button className="hover:bg-[#A89A7D] text-white py-3 rounded-lg font-bold bg-[#BFB399] dark:bg-[#8F836B] dark:hover:from-slate-800 dark:hover:to-neutral-800">
-                    View All Projects
-                  </Button>
+              <Button className="bg-[#BFB399] hover:bg-[#A89A7D] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white py-3 rounded-lg font-bold transition-colors duration-300">
+                View All Projects
+              </Button>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-[#FFFFFF] relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-white-200 to-blue-200 rounded-full blur-3xl opacity-20 -translate-y-48 -translate-x-48"></div>
+      <section className="py-20 bg-[#FFFFFF] dark:bg-gray-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-slate-200 to-neutral-200 dark:from-[#857F75]/20 dark:to-[#A89A7D]/10 rounded-full blur-3xl opacity-20 -translate-y-48 -translate-x-48"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -373,7 +372,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
               {
                 step: "01",
@@ -578,22 +577,17 @@ export default function HomePage() {
                   {
                     skill: "Print Design",
                     level: 90,
-                    color: "from-white-500 to-gray-600",
+                    color: "from-[#E3DCD5] to-[#857F75]",
                   },
                   {
                     skill: "Logo Design",
                     level: 98,
-                    color: "from-zinc-500 to-red-600",
+                    color: "from-[#BFB399] to-[#8F8675]",
                   },
                   {
                     skill: "Ad Design",
                     level: 85,
-                    color: "from-green-500 to-blue-600",
-                  },
-                  {
-                    skill: "Print Design",
-                    level: 88,
-                    color: "from-orange-500 to-red-600",
+                    color: "from-[#C9C0A6] to-[#A89A7D]",
                   },
                 ].map((item, index) => (
                   <div key={index} className="space-y-2">

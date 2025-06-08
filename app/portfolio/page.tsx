@@ -109,12 +109,12 @@ export default function PortfolioPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-slate-400 to-neutral-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-white-400 to-gray-500 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-zinc-400 to-neutral-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-[#E3DCD5] to-[#A89A7D] dark:from-[#857F75]/20 dark:to-[#A89A7D]/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-[#D8CFBC] to-[#BFB399] dark:from-[#857F75]/20 dark:to-[#A89A7D]/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-[#BFB399] to-[#A89A7D] dark:from-[#857F75]/20 dark:to-[#A89A7D]/10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -137,8 +137,8 @@ export default function PortfolioPage() {
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
                   activeCategory === category
-                    ? "bg-[#A89A7D] text-white"
-                    : "hover:bg-gray-50 dark:hover:bg-gray-700"
+                    ? "bg-[#A89A7D] dark:bg-[#857F75] text-white"
+                    : "hover:border-[#A89A7D] dark:hover:border-[#857F75] dark:text-gray-200"
                 }`}
               >
                 {category}
@@ -171,7 +171,7 @@ export default function PortfolioPage() {
                         <Link href={`/portfolio/${project.id}`}>
                           <Button
                             size="sm"
-                            className="bg-[#A89A7D]/40 backdrop-blur-sm text-white border-[#A89A7D]/30 hover:bg-[#A89A7D]/60"
+                            className="bg-[#A89A7D]/70 dark:bg-[#857F75]/70 backdrop-blur-sm text-white border-transparent hover:bg-[#A89A7D] dark:hover:bg-[#857F75] transition-colors duration-300"
                           >
                             <Eye className="w-4 h-4 mr-1" />
                             View
@@ -180,7 +180,7 @@ export default function PortfolioPage() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="bg-[#A89A7D]/40 backdrop-blur-sm text-white border-[#A89A7D]/30 hover:bg-[#A89A7D]/60"
+                          className="bg-[#A89A7D]/40 dark:bg-[#857F75]/40 backdrop-blur-sm text-white border-[#A89A7D]/30 dark:border-[#857F75]/30 hover:bg-[#A89A7D]/60 dark:hover:bg-[#857F75]/60 transition-colors duration-300"
                         >
                           <ExternalLink className="w-4 h-4 mr-1" />
                           Live
@@ -221,7 +221,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#857F75] text-white">
+      <section className="py-20 bg-[#857F75] dark:bg-[#1A1A1A] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">Like What You See?</h2>
           <p className="text-xl dark:text-gray-300 max-w-2xl mx-auto">
@@ -229,7 +229,7 @@ export default function PortfolioPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-4">
             <Link href="/#contact">
-              <Button size="lg" className="group relative overflow-hidden text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
+              <Button size="lg" className="group relative overflow-hidden bg-[#A89A7D] hover:bg-[#8F8675] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-300">
                 <span className="relative flex items-center">
                   Start a Project
                   <div className="ml-2 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
@@ -242,9 +242,9 @@ export default function PortfolioPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="group px-10 py-4 rounded-full text-lg font-medium border-2 border-white hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group px-10 py-4 rounded-full text-lg font-medium border-2 border-white dark:border-[#857F75] hover:bg-white dark:hover:bg-[#857F75]/30 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                <span className="text-black group-hover:text-slate-700 transition-all duration-300">
+                <span className="text-[#A89A7D] group-hover:text-[#A89A7D] dark:text-white dark:group-hover:text-[#BFB399] transition-all duration-300">
                   Learn More About Me
                 </span>
               </Button>

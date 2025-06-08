@@ -65,10 +65,10 @@ export function Navigation() {
                 href={item.href}
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full group ${
                   pathname === item.href
-                    ? "text-[#A89A7D]"
+                    ? "text-[#A89A7D] dark:text-[#BFB399]"
                     : isScrolled
-                    ? "text-gray-700 hover:text-[#A89A7D]"
-                    : "text-gray-800 hover:text-[#A89A7D]"
+                    ? "text-gray-700 dark:text-gray-300 hover:text-[#A89A7D] dark:hover:text-[#BFB399]"
+                    : "text-gray-800 dark:text-gray-200 hover:text-[#A89A7D] dark:hover:text-[#BFB399]"
                 }`}
               >
                 {pathname === item.href && (
@@ -109,15 +109,15 @@ export function Navigation() {
 
         {/* Enhanced Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl shadow-2xl border border-gray-100/50 rounded-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-[#E3DCD5]/20"></div>
+          <div className="md:hidden absolute top-20 left-4 right-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl border border-[#E3DCD5]/50 dark:border-[#857F75]/30 rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-[#E3DCD5]/30 dark:bg-[#857F75]/10"></div>
             <div className="relative px-6 py-8 space-y-6">
               {navItems.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block text-lg font-medium transition-all duration-300 hover:text-[#A89A7D] hover:translate-x-2 ${
-                    pathname === item.href ? "text-[#A89A7D]" : "text-gray-700"
+                  className={`block text-lg font-medium transition-all duration-300 hover:text-[#A89A7D] dark:hover:text-[#BFB399] hover:translate-x-2 ${
+                    pathname === item.href ? "text-[#A89A7D] dark:text-[#BFB399]" : "text-gray-700 dark:text-gray-200"
                   }`}
                   onClick={() => setIsOpen(false)}
                   style={{ animationDelay: `${index * 100}ms` }}
@@ -125,14 +125,14 @@ export function Navigation() {
                   <div className="flex items-center space-x-3">
                     <div
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        pathname === item.href ? "bg-blue-600" : "bg-gray-300"
+                        pathname === item.href ? "bg-[#A89A7D] dark:bg-[#BFB399]" : "bg-[#E3DCD5] dark:bg-[#857F75]/50"
                       }`}
                     ></div>
                     <span>{item.name}</span>
                   </div>
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="pt-4 border-t border-[#E3DCD5] dark:border-[#857F75]/30">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     Theme
@@ -140,7 +140,7 @@ export function Navigation() {
                   <ThemeToggle />
                 </div>
                 <Link href="/#contact" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-xl py-3 shadow-lg">
+                  <Button className="w-full bg-[#A89A7D] hover:bg-[#8F8675] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white rounded-xl py-3 shadow-lg transition-colors duration-300">
                     Let's Talk
                   </Button>
                 </Link>
