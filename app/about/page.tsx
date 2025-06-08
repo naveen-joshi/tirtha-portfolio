@@ -110,15 +110,17 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <Button className="group relative overflow-hidden text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
-                <span className="relative flex items-center">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
-                  <div className="ml-2 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
-                    →
-                  </div>
-                </span>
-              </Button>
+              <a href="/Tirtha Jain- Resume.pdf" download>
+                <Button className="group relative overflow-hidden bg-[#A89A7D] hover:bg-[#8F8675] text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
+                  <span className="relative flex items-center">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Resume
+                    <div className="ml-2 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+                      →
+                    </div>
+                  </span>
+                </Button>
+              </a>
             </div>
 
             <div className="relative">
@@ -144,20 +146,13 @@ export default function AboutPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">My Story</h2>
             <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
               <p>
-                My journey into graphic design began during my college years when I discovered the power of visual
-                communication. What started as a hobby quickly evolved into a passion, and eventually, my career. I
-                believe that great design is not just about making things look beautiful—it's about solving problems and
-                creating meaningful connections between brands and people.
+              As a passionate and dedicated Graphic Designer with 3 years of professional experience, I bring a unique blend of creativity and technical skill to every project. Being self-taught, I have cultivated a keen eye for aesthetics and a deep understanding of design principles through hands-on practice and continuous learning.
               </p>
               <p>
-                Over the past five years, I've had the privilege of working with diverse clients, from innovative
-                startups to established corporations. Each project has taught me something new and reinforced my belief
-                that design has the power to transform businesses and touch lives.
+              My journey in graphic design is driven by an unwavering enthusiasm for art and a commitment to creating visually compelling and impactful designs. I am proficient in various design software and have a proven ability to conceptualize and execute designs that effectively communicate the intended message.
               </p>
               <p>
-                When I'm not designing, you can find me exploring art galleries, experimenting with new creative
-                techniques, or mentoring aspiring designers. I'm constantly inspired by the world around me and always
-                looking for new ways to push the boundaries of visual storytelling.
+              I thrive in collaborative environments and am always eager to embrace new challenges that push the boundaries of my creativity. With a meticulous approach to detail and a passion for staying current with industry trends, I am dedicated to delivering high-quality, innovative design solutions that meet and exceed client expectations.
               </p>
             </div>
           </div>

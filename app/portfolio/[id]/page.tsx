@@ -1,10 +1,14 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, ExternalLink, Calendar, User } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import React, { useState } from "react"
 import { Navigation } from "@/components/navigation"
+import { ImageLightbox } from "@/components/image-lightbox"
 
 // This would typically come from a database or API
 const projectData = {
@@ -15,7 +19,7 @@ const projectData = {
     client: "The Oven Story Inc.",
     duration: "3 months",
     description:
-      "The Oven Story approached me to create a comprehensive brand identity that would position them as a forward-thinking bakery brand. The challenge was to create a brand that felt both artisanal and approachable, appealing to both casual customers and catering clients.",
+      'This project focuses on developing a clear and captivating brand identity that reflects the essence and values of for for "The Oven Story," a bakery cum dessert boutique, The project deals with a distinctive logo, designing business cards, menus, mockups, signs, carry bags, and other brand collateral that will establish a memorable and consistent brand presence.',
     challenge:
       "The main challenge was creating a brand identity that could work across multiple touchpoints while maintaining consistency and impact. The logo needed to be versatile enough for digital applications, print materials, and packaging.",
     solution:
@@ -56,10 +60,30 @@ const projectData = {
       position: "Creative Director, Label Shaaf",
     },
   },
+  'railwire': {
+    title: "Railwire",
+    category: "Promotional Campaign",
+    year: "2022",
+    client: "Railwire",
+    duration: "3 months",
+    description:
+      "The project deals with a distinctive logo, designing business cards, menus, mockups, signs, carry bags, and other brand collateral.",
+    tags: ["Branding", "Logo Design", "Guidelines"],
+    images: Array.from({ length: 8 }, (_, i) => `/railwire/img${i + 1}.png`),
+    tools: ["Figma", "Adobe XD", "Photoshop"],
+    testimonial: {
+      text:
+        "Tirtha delivered a brand identity that perfectly captures our bakery's vision and values. The design system is not only beautiful but also incredibly functional across all our touchpoints.",
+      author: "Sarah Johnson",
+      position: "Owner, The Oven Story",
+    },
+  }
 }
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {
+  // Access params directly in client component
   const project = projectData[params.id as keyof typeof projectData]
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
   if (!project) {
     return (
@@ -118,7 +142,10 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
               </div>
             </div>
 
-            <div className="relative">
+            <div 
+              className="relative cursor-pointer" 
+              onClick={() => project.images[0] && setLightboxImage(project.images[0])}
+            >
               <Image
                 src={project.images[0] || "/placeholder.svg"}
                 alt={project.title}
@@ -126,6 +153,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 height={600}
                 className="w-full rounded-2xl shadow-2xl"
               />
+              <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                <div className="bg-[#A89A7D]/80 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm">
+                  View Full Size
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -135,7 +167,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
       <section className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2">
               {/* Challenge */}
               {/* <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">The Challenge</h2>
@@ -159,7 +191,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Project Gallery</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {project.images.slice(1).map((image, index) => (
-                    <div key={index} className="aspect-[4/3] relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div 
+                      key={index} 
+                      className="aspect-[4/3] relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                      onClick={() => setLightboxImage(image)}
+                    >
                       <Image
                         src={image || "/placeholder.svg"}
                         alt={`${project.title} - Image ${index + 2}`}
@@ -167,10 +203,24 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover"
                       />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="bg-[#A89A7D]/80 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm">
+                          View Full Size
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
+              
+              {/* Lightbox */}
+              {lightboxImage && (
+                <ImageLightbox 
+                  src={lightboxImage} 
+                  alt={project.title} 
+                  onClose={() => setLightboxImage(null)} 
+                />
+              )}
             </div>
 
             {/* Sidebar */}

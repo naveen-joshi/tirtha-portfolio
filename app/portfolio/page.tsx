@@ -18,7 +18,7 @@ const projects = [
     category: "Branding",
     image: "/the-oven-story/img1.jpg",
     description:
-      "Complete brand identity design for the oven story including logo, color palette, and brand guidelines.",
+      "The project deals with a distinctive logo, designing business cards, menus, mockups, signs, carry bags, and other brand collateral.",
     tags: ["Branding", "Logo Design", "Guidelines"],
     year: "2023",
     client: "The Oven Story",
@@ -26,7 +26,7 @@ const projects = [
   {
     id: 'label-shaaf',
     title: "Label Shaaf",
-    category: "UI/UX Design",
+    category: "Branding",
     image: "/label-shaaf/img1.png",
     description:
       "User interface design for a sustainability-focused mobile application with intuitive user experience.",
@@ -35,8 +35,8 @@ const projects = [
     client: "EcoLife Solutions",
   },
   {
-    id: 3,
-    title: "Artisan Coffee Logo",
+    id: 'logo',
+    title: "Logo",
     category: "Logo Design",
     image: "/placeholder.svg?height=400&width=600",
     description: "Handcrafted logo design for a local coffee roastery emphasizing artisanal quality and tradition.",
@@ -45,56 +45,14 @@ const projects = [
     client: "Artisan Coffee Co.",
   },
   {
-    id: 4,
-    title: "FinanceHub Website",
-    category: "Ad Design",
-    image: "/placeholder.svg?height=400&width=600",
+    id: 'railwire',
+    title: "Railwire",
+    category: "Promotional Campaign",
+    image: "/railwire/img1.png",
     description: "Modern website design for a financial services company with focus on trust and professionalism.",
     tags: ["Ad Design", "Finance", "Corporate"],
-    year: "2022",
-    client: "FinanceHub",
-  },
-  {
-    id: 5,
-    title: "Wellness Magazine Layout",
-    category: "Print Design",
-    image: "/placeholder.svg?height=400&width=600",
-    description: "Editorial design for a wellness magazine featuring clean layouts and inspiring typography.",
-    tags: ["Print Design", "Editorial", "Wellness"],
-    year: "2022",
-    client: "Wellness Today",
-  },
-  {
-    id: 6,
-    title: "StartupX Brand Package",
-    category: "Branding",
-    image: "/placeholder.svg?height=400&width=600",
-    description:
-      "Comprehensive branding package for a tech startup including logo, business cards, and digital assets.",
-    tags: ["Branding", "Startup", "Tech"],
-    year: "2022",
-    client: "StartupX",
-  },
-  {
-    id: 7,
-    title: "FoodieApp Interface",
-    category: "UI/UX Design",
-    image: "/placeholder.svg?height=400&width=600",
-    description: "Intuitive mobile app interface design for a food delivery service with seamless user experience.",
-    tags: ["UI/UX Design", "Mobile", "Food"],
-    year: "2022",
-    client: "FoodieApp",
-  },
-  {
-    id: 8,
-    title: "GreenTech Logo Suite",
-    category: "Logo Design",
-    image: "/placeholder.svg?height=400&width=600",
-    description:
-      "Logo design suite for an environmental technology company with variations for different applications.",
-    tags: ["Logo Design", "Environment", "Technology"],
-    year: "2021",
-    client: "GreenTech Solutions",
+    year: "2024",
+    client: "Railwire",
   },
 ]
 
@@ -153,7 +111,7 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <Link href={`/portfolio/${project.id}`} className="block">
+              <Link href={`/portfolio/${project.id}`} key={project.id} className="block">
                 <Card
                   key={project.id}
                   className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800 cursor-pointer"

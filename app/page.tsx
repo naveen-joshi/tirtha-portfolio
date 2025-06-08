@@ -11,12 +11,12 @@ import {
   Mail,
   Phone,
   MapPin,
-  Github,
   Linkedin,
   Twitter,
   Instagram,
   Sparkles,
 } from "lucide-react";
+import { BehanceIcon } from "@/components/behance-icon";
 import Link from "next/link";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { Navigation } from "@/components/navigation";
@@ -801,22 +801,23 @@ export default function HomePage() {
                 </h4>
                 <div className="flex space-x-4">
                   {[
-                    { icon: Github, href: "#" },
+                    { icon: BehanceIcon, href: "https://www.behance.net/tirthajain" },
                     { icon: Linkedin, href: "#" },
                     { icon: Twitter, href: "#" },
-                    { icon: Instagram, href: "#" },
+                    { icon: Instagram, href: "#" }
                   ].map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
+                      target="_blank"
                       aria-label={`Follow me on ${Object.keys({
-                        Github,
+                        BehanceIcon,
                         Linkedin,
                         Twitter,
                         Instagram,
                       }).find(
                         (key) =>
-                          ({ Github, Linkedin, Twitter, Instagram }[key] ===
+                          ({ Linkedin, Twitter, Instagram, BehanceIcon }[key] ===
                           social.icon)
                       )}`}
                       className="w-12 h-12 bg-gray-100 dark:bg-gray-800 hover:bg-[#A89A7D] rounded-full flex items-center justify-center transition-all duration-300 group"
