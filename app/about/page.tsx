@@ -130,15 +130,15 @@ export default function AboutPage() {
               </a>
             </div>
 
-            <div className="relative">
-              <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0"></div>
+            <div className="relative ">
+              <div className="relative w-full max-w-sm mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D8CFBC] to-[#A89A7D] rounded-2xl blur-xl shadow-[0_20px_50px_rgba(168,154,125,0.3)]"></div>
                 <Image
-                  src="/placeholder.svg?height=500&width=400"
+                  src="/profile.jpg"
                   alt="Tirtha Jain"
-                  width={400}
-                  height={500}
-                  className="relative z-10 w-full rounded-2xl shadow-xl"
+                  width={140}
+                  height={100}
+                  className="relative z-10 w-full rounded-2xl border-2 border-[#E3DCD5]/20"
                 />
               </div>
             </div>

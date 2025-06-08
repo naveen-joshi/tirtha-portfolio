@@ -45,10 +45,10 @@ export const siteMetadata = {
     siteName: 'Tirtha Portfolio',
     images: [
       {
-        url: 'https://tirtha-portfolio.vercel.app/og-image.jpg', // You'll need to create this image
+        url: 'https://tirtha-portfolio.vercel.app/og-image.jpg', // Using profile image as OG image
         width: 1200,
-        height: 630,
-        alt: 'Tirtha Portfolio Preview'
+        height: 1200,
+        alt: 'Tirtha Jain - Professional Graphic Designer'
       }
     ],
     locale: 'en_US',
@@ -58,7 +58,7 @@ export const siteMetadata = {
     card: 'summary_large_image' as 'summary_large_image',
     title: 'Tirtha Portfolio | Professional Graphic Designer',
     description: 'Professional graphic design services including branding, logo design, print design, ad campaigns, and digital media.',
-    images: ['https://tirtha-portfolio.vercel.app/twitter-image.jpg'], // You'll need to create this image
+    images: ['https://tirtha-portfolio.vercel.app/og-image.jpg'], // Using profile image for Twitter
     creator: '@tirthadesign' // Update with actual Twitter handle
   }
 };

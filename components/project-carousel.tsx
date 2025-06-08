@@ -97,25 +97,26 @@ export function ProjectCarousel() {
             <ChevronRight className="w-6 h-6" />
           </Button>
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+          {/* Enhanced Gradient Overlay - bottom 20% only */}
+          <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
-          {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10">
-            <div className="text-sm opacity-80 mb-1">
-              {featuredProjects[currentIndex].category}
+          {/* Content with improved visibility */}
+          <div className="absolute bottom-0 left-0 right-0 p-3 text-white z-10">
+            <div className="flex items-end justify-between w-full px-4 py-3 backdrop-blur-sm bg-black/20 border-t border-white/10">
+              <div>
+                <div className="inline-block px-2 py-0.5 rounded-full bg-[#A89A7D] text-white text-xs font-medium mb-1">
+                  {featuredProjects[currentIndex].category}
+                </div>
+                <h3 className="text-xl font-semibold text-white drop-shadow-md">
+                  {featuredProjects[currentIndex].title}
+                </h3>
+              </div>
+              <Link href={`/portfolio/${featuredProjects[currentIndex].id}`}>
+                <Button size="sm" className="rounded-full bg-[#A89A7D] hover:bg-[#8F8675] text-white border-0">
+                  View
+                </Button>
+              </Link>
             </div>
-            <h3 className="text-xl font-semibold mb-2">
-              {featuredProjects[currentIndex].title}
-            </h3>
-            <p className="text-sm opacity-90 mb-4">
-              {featuredProjects[currentIndex].description}
-            </p>
-            <Link href={`/portfolio/${featuredProjects[currentIndex].id}`}>
-              <Button size="sm" variant="secondary" className="rounded-full">
-                View Project
-              </Button>
-            </Link>
           </div>
         </div>
       </Card>

@@ -284,8 +284,7 @@ export default function HomePage() {
                 category: "Brand Identity",
                 image: "/the-oven-story/img8.jpg",
                 description:
-                  "Complete brand transformation for a growing tech startup",
-                tags: ["Branding", "Logo", "Guidelines"],
+                  "Distinctive branding for a bakery cum dessert boutique with logo, menus, and brand collateral",
                 color: "from-[#D8CFBC] to-[#A89A7D]",
               },
               {
@@ -294,8 +293,7 @@ export default function HomePage() {
                 category: "Print Design",
                 image: "/social-media/img2.jpg",
                 description:
-                  "Sustainable living app with intuitive user experience",
-                tags: ["Mobile", "Print Design", "Sustainability"],
+                  "Promotional campaign design for sustainable fashion brand with earthy aesthetic",
                 color: "from-[#D8CFBC] to-[#A89A7D]",
               },
               {
@@ -303,58 +301,47 @@ export default function HomePage() {
                 title: "Luxe Comfort",
                 category: "Logo Design",
                 image: "/logo/LuxeComfort.jpg",
-                description: "Handcrafted identity for premium coffee roastery",
-                tags: ["Logo", "Packaging", "Print"],
+                description: "Elegant logo design for premium furniture brand emphasizing comfort and luxury",
                 color: "from-[#D8CFBC] to-[#A89A7D]",
               },
             ].map((project, index) => (
-              <Card
-                key={index}
-                className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800"
-              >
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-0 group-hover:opacity-80 transition-opacity duration-500`}
-                  ></div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <Link href={`/portfolio/${project.id}`}>
+              <Link href={`/portfolio/${project.id}`} key={index} className="block cursor-pointer">
+                <Card
+                  key={index}
+                  className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-0 group-hover:opacity-80 transition-opacity duration-500`}
+                    ></div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <Button className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 rounded-full">
                         View Project
                       </Button>
-                    </Link>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="secondary" className="text-xs">
-                      {project.category}
-                    </Badge>
-                    <div className="flex space-x-1">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="text-xs text-gray-500 dark:text-gray-400"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <Badge variant="secondary" className="text-xs">
+                        {project.category}
+                      </Badge>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
