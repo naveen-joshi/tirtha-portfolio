@@ -14,14 +14,14 @@ const categories = ["All", "Logo Design", "Branding", "Print Design", "Ad Design
 const projects = [
   {
     id: 1,
-    title: "TechFlow Brand Identity",
+    title: "The Oven Story",
     category: "Branding",
     image: "/placeholder.svg?height=400&width=600",
     description:
-      "Complete brand identity design for a tech startup including logo, color palette, and brand guidelines.",
+      "Complete brand identity design for the oven story including logo, color palette, and brand guidelines.",
     tags: ["Branding", "Logo Design", "Guidelines"],
     year: "2023",
-    client: "TechFlow Inc.",
+    client: "The Oven Story",
   },
   {
     id: 2,

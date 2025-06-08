@@ -9,13 +9,13 @@ import { Navigation } from "@/components/navigation"
 // This would typically come from a database or API
 const projectData = {
   1: {
-    title: "TechFlow Brand Identity",
+    title: "The Oven Story",
     category: "Branding",
     year: "2023",
-    client: "TechFlow Inc.",
+    client: "The Oven Story Inc.",
     duration: "3 months",
     description:
-      "TechFlow approached me to create a comprehensive brand identity that would position them as a forward-thinking technology company. The challenge was to create a brand that felt both innovative and trustworthy, appealing to both tech-savvy users and enterprise clients.",
+      "The Oven Story approached me to create a comprehensive brand identity that would position them as a forward-thinking technology company. The challenge was to create a brand that felt both innovative and trustworthy, appealing to both tech-savvy users and enterprise clients.",
     challenge:
       "The main challenge was creating a brand identity that could work across multiple touchpoints while maintaining consistency and impact. The logo needed to be versatile enough for digital applications, print materials, and merchandise.",
     solution:
@@ -23,10 +23,15 @@ const projectData = {
     results:
       "The new brand identity helped TechFlow secure $2M in Series A funding and increased their brand recognition by 150% within six months of launch.",
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/theovenstory/TheOvenStory1.jpg",
+      "/theovenstory/TheOvenStory2.jpg",
+      "/theovenstory/TheOvenStory3.jpg",
+      "/theovenstory/TheOvenStory4.jpg",
+      "/theovenstory/TheOvenStory5.jpg",
+      "/theovenstory/TheOvenStory6.jpg",
+      "/theovenstory/TheOvenStory7.jpg",
+      "/theovenstory/TheOvenStory8.jpg",
+      
     ],
     tags: ["Branding", "Logo Design", "Guidelines", "Corporate Identity"],
     tools: ["Adobe Illustrator", "Adobe Photoshop", "Adobe InDesign"],
@@ -124,36 +129,37 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-12">
               {/* Challenge */}
-              <div>
+              {/* <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">The Challenge</h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-12">{project.challenge}</p>
-              </div>
+              </div> */}
 
               {/* Solution */}
-              <div>
+              {/* <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">The Solution</h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-12">{project.solution}</p>
-              </div>
+              </div> */}
 
               {/* Results */}
-              <div>
+              {/* <div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">The Results</h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">{project.results}</p>
-              </div>
+              </div> */}
 
               {/* Additional Images */}
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Project Gallery</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {project.images.slice(1).map((image, index) => (
-                    <Image
-                      key={index}
-                      src={image || "/placeholder.svg"}
-                      alt={`${project.title} - Image ${index + 2}`}
-                      width={600}
-                      height={400}
-                      className="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    />
+                    <div key={index} className="aspect-[4/3] relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <Image
+                        src={image || "/placeholder.svg"}
+                        alt={`${project.title} - Image ${index + 2}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
