@@ -215,24 +215,6 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-20 bg-[#E3DCD5] dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto border-0 shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-            <CardContent className="p-12 text-center">
-              <div className="text-4xl text-[#A89A7D] dark:text-[#BFB399] mb-6">"</div>
-              <blockquote className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6 italic">
-                {project.testimonial.text}
-              </blockquote>
-              <div>
-                <p className="font-semibold text-gray-900 dark:text-white">{project.testimonial.author}</p>
-                <p className="text-gray-600 dark:text-gray-400">{project.testimonial.position}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
       {/* Next Project CTA */}
       <section className="py-20 bg-[#857F75] dark:bg-[#1A1A1A] text-white">
         <div className="container mx-auto px-4 text-center">
