@@ -206,7 +206,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #A89A7D;
   border-radius: 4px;
 }
 
@@ -236,8 +236,23 @@
   animation: marquee 40s linear infinite;
 }
 
+/* Faster marquee animation for mobile */
+.animate-marquee-fast {
+  animation: marquee 20s linear infinite;
+}
+
 .marquee-paused {
   animation-play-state: paused;
+}
+
+/* Hide scrollbar but maintain functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Work gallery styles */

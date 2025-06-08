@@ -91,7 +91,7 @@ export default function HomePage() {
             <div className="space-y-10">
               {/* Enhanced Text Content */}
               <div className="space-y-6">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-slate-100 to-neutral-100 rounded-full text-sm font-medium text-blue-700 mb-4 animate-fade-in-up">
+                <div className="inline-flex items-center px-4 py-2 bg-[#BFB399] rounded-full text-sm font-medium  mb-4 animate-fade-in-up">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Available for new projects
                 </div>
@@ -196,7 +196,7 @@ export default function HomePage() {
               className="relative animate-fade-in-up w-full lg:max-w-2xl"
               style={{ animationDelay: "1s" }}
             >
-              <div className="absolute -inset-4 bg-gradient-to-r from-slate-200/20 via-neutral-600/20 to-gray-600/20 rounded-3xl blur-2xl"></div>
+              <div className="absolute -inset-4 rounded-3xl blur-2xl"></div>
               <div className="p-2">
                 <ProjectCarousel />
               </div>

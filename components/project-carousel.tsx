@@ -12,21 +12,21 @@ const featuredProjects = [
     id: 1,
     title: "TechFlow Brand Identity",
     category: "Branding",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/img1.jpg",
     description: "Complete brand identity for a tech startup",
   },
   {
     id: 2,
     title: "EcoLife Mobile App",
     category: "Print Design",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/img2.jpg",
     description: "Sustainable living mobile application design",
   },
   {
     id: 3,
     title: "Artisan Coffee Logo",
     category: "Logo Design",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/img3.jpg",
     description: "Handcrafted logo for local coffee roastery",
   },
 ];
@@ -66,21 +66,21 @@ export function ProjectCarousel() {
 
   return (
     <div className="relative w-full mx-auto">
-      <Card className="border-0 shadow-2xl overflow-hidden bg-white/80 backdrop-blur-sm">
+      <Card className="border-0 shadow-2xl overflow-hidden bg-white/80 backdrop-blur-sm w-full">
         <div className="relative">
           <Image
             src={featuredProjects[currentIndex].image || "/placeholder.svg"}
             alt={featuredProjects[currentIndex].title}
             width={600}
             height={400}
-            className="w-full h-96 object-cover"
+            className="w-full h-[70dvh] object-cover"
           />
 
           {/* Navigation Buttons */}
           <Button
             variant="ghost"
             size="lg"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#A89A7D] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#E3DCD5] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
             onClick={goToPrevious}
           >
             <ChevronLeft className="w-6 h-6" />
@@ -89,7 +89,7 @@ export function ProjectCarousel() {
           <Button
             variant="ghost"
             size="lg"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#A89A7D] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#E3DCD5] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
             onClick={goToNext}
           >
             <ChevronRight className="w-6 h-6" />

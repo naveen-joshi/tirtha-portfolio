@@ -11,56 +11,56 @@ const workGallery = [
     id: 1,
     title: "Print Design - Magazine Layout",
     category: "Print Design",
-    image: "/placeholder.svg?height=300&width=400&text=Magazine+Layout",
+    image: "/img1.jpg",
     color: "#A89A7D",
   },
   {
     id: 2,
     title: "Ad Campaign - Summer Collection",
     category: "Ad Design",
-    image: "/placeholder.svg?height=300&width=400&text=Ad+Campaign",
+    image: "/img2.jpg",
     color: "#6B8E23",
   },
   {
     id: 3,
     title: "Brand Identity - Logo Design",
     category: "Branding",
-    image: "/placeholder.svg?height=300&width=400&text=Brand+Identity",
+    image: "/img3.jpg",
     color: "#4682B4",
   },
   {
     id: 4,
     title: "Product Packaging - Eco Series",
     category: "Print Design",
-    image: "/placeholder.svg?height=300&width=400&text=Product+Packaging",
+    image: "/img4.jpg",
     color: "#708090",
   },
   {
     id: 5,
     title: "Billboard Design - Urban Campaign",
     category: "Ad Design",
-    image: "/placeholder.svg?height=300&width=400&text=Billboard+Design",
+    image: "/img5.jpg",
     color: "#8FBC8F",
   },
   {
     id: 6,
     title: "Annual Report - Corporate Design",
     category: "Print Design",
-    image: "/placeholder.svg?height=300&width=400&text=Annual+Report",
+    image: "/img6.jpg",
     color: "#CD5C5C",
   },
   {
     id: 7,
     title: "Social Media Campaign - Holiday",
     category: "Ad Design",
-    image: "/placeholder.svg?height=300&width=400&text=Social+Media",
+    image: "/img7.jpg",
     color: "#B8860B",
   },
   {
     id: 8,
     title: "Business Cards - Premium Collection",
     category: "Print Design",
-    image: "/placeholder.svg?height=300&width=400&text=Business+Cards",
+    image: "/img8.jpg",
     color: "#9370DB",
   },
 ];
@@ -79,9 +79,22 @@ const getCategoryColor = (category: string): string => {
 export function WorkGallery() {
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   
   // Duplicate the gallery array to create the infinite scroll effect
-  const duplicatedGallery = [...workGallery, ...workGallery];
+  const duplicatedGallery = [...workGallery, ...workGallery, ...workGallery];
+
+  // Handle manual scrolling
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    setScrollPosition(e.currentTarget.scrollLeft);
+    // Pause auto-scrolling while user is manually scrolling
+    setIsPaused(true);
+    
+    // Resume auto-scrolling after user stops scrolling
+    const resumeTimeout = setTimeout(() => setIsPaused(false), 2000);
+    return () => clearTimeout(resumeTimeout);
+  };
 
   return (
     <div className="w-full overflow-hidden bg-[#F8F7F4] dark:bg-gray-900 py-16">
@@ -96,18 +109,25 @@ export function WorkGallery() {
       
       <div 
         className="relative w-full overflow-hidden py-8"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => {
-          setIsPaused(false);
-          setHoveredItem(null);
-        }}
       >
         <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-[#F8F7F4] to-transparent z-10 dark:from-gray-900"></div>
         <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-[#F8F7F4] to-transparent z-10 dark:from-gray-900"></div>
         
         <div 
-          className={`flex items-center gap-12 px-8 ${isPaused ? "marquee-paused" : "animate-marquee"}`}
+          ref={scrollContainerRef}
+          className="overflow-x-auto hide-scrollbar pb-4"
+          onScroll={handleScroll}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => {
+            setIsPaused(false);
+            setHoveredItem(null);
+          }}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setTimeout(() => setIsPaused(false), 2000)}
         >
+          <div 
+            className={`flex items-center gap-12 px-8 ${isPaused ? "" : "animate-marquee-fast"}`}
+          >
           {duplicatedGallery.map((item, index) => (
             <div 
               key={`${item.id}-${index}`} 
@@ -129,6 +149,7 @@ export function WorkGallery() {
               </Link>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </div>
