@@ -110,8 +110,8 @@ export function WorkGallery() {
       <div 
         className="relative w-full overflow-hidden py-8"
       >
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-[#F8F7F4] to-transparent z-10 dark:from-gray-900"></div>
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-[#F8F7F4] to-transparent z-10 dark:from-gray-900"></div>
+        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-[#F8F7F4] to-transparent z-10 dark:from-gray-900 hidden sm:block"></div>
+        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-[#F8F7F4] to-transparent z-10 dark:from-gray-900 hidden sm:block"></div>
         
         <div 
           ref={scrollContainerRef}

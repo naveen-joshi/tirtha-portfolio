@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,28 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -92,6 +116,7 @@ export function Navigation() {
 
           {/* Enhanced Mobile Menu Button */}
           <Button
+            ref={buttonRef}
             variant="ghost"
             size="sm"
             className="md:hidden relative p-2 rounded-xl hover:bg-[#E3DCD5]/50 transition-all duration-300"
@@ -109,7 +134,7 @@ export function Navigation() {
 
         {/* Enhanced Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden absolute top-20 left-4 right-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl border border-[#E3DCD5]/50 dark:border-[#857F75]/30 rounded-2xl overflow-hidden">
+          <div ref={menuRef} className="md:hidden absolute top-20 left-4 right-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl border border-[#E3DCD5]/50 dark:border-[#857F75]/30 rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-[#E3DCD5]/30 dark:bg-[#857F75]/10"></div>
             <div className="relative px-6 py-8 space-y-6">
               {navItems.map((item, index) => (
