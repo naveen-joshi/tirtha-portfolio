@@ -9,7 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 
-const categories = ["All", "Logo Design", "Branding", "Print Design", "Ad Design", "UI/UX Design"]
+const categories = ["All", "Logo Design", "Branding", "Print Design", "Ad Design"]
 
 const projects = [
   {
@@ -38,7 +38,7 @@ const projects = [
     id: 'logo',
     title: "Logo",
     category: "Logo Design",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/logo/LuxeComfort.jpg",
     description: "Handcrafted logo design for a local coffee roastery emphasizing artisanal quality and tradition.",
     tags: ["Logo Design", "Coffee", "Artisan"],
     year: "2023",
@@ -54,6 +54,54 @@ const projects = [
     year: "2024",
     client: "Railwire",
   },
+  {
+    id: 'byd',
+    title: "BYD",
+    category: "Logo Design",
+    image: "/byd/img5.jpeg",
+    description: "Logo design for a leading Chinese automaker",
+    tags: ["Logo Design", "Automotive", "Corporate"],
+    year: "2024",
+    client: "BYD",
+  },
+  {
+    id: 'social-media',
+    title: "Social Media",
+    category: "Social Media",
+    image: "/social-media/img3.png",
+    description: "Social media design for a financial services company with focus on trust and professionalism.",
+    tags: ["Social Media", "Finance", "Corporate"],
+    year: "2024"
+  },
+  {
+    id: 'book-cover',
+    title: "Book Cover",
+    category: "Book Cover",
+    image: "/book-cover/img1.jpg",
+    description: "Book cover design for a financial services company with focus on trust and professionalism.",
+    tags: ["Book Cover", "Finance", "Corporate"],
+    year: "2024"
+  },
+  {
+    id: 'illustrations',
+    title: "Illustrations",
+    category: "Illustrations",
+    image: "/illustrations/img1.jpg",
+    description: "Illustrations for a financial services company with focus on trust and professionalism.",
+    tags: ["Illustrations", "Finance", "Corporate"],
+    year: "2024"
+  },
+  {
+    id: 'mayze',
+    title: "Mayze",
+    category: "Logo Design",
+    image: "/mayze/img2.jpg",
+    description: "Logo design for a leading Chinese automaker",
+    tags: ["Logo Design", "Automotive", "Corporate"],
+    year: "2024",
+    client: "Mayze",
+  }
+
 ]
 
 export default function PortfolioPage() {
@@ -160,8 +208,9 @@ export default function PortfolioPage() {
                         </Badge>
                       ))}
                     </div>
-
+                    {project.client && (
                     <div className="text-xs text-gray-500 dark:text-gray-400">Client: {project.client}</div>
+                    )}
                   </CardContent>
                 </Card>
               </Link>

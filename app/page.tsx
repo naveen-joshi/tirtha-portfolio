@@ -271,27 +271,30 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {[
               {
-                title: "TechFlow Rebrand",
+                id: 'the-oven-story',
+                title: "The Oven Story",
                 category: "Brand Identity",
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/the-oven-story/img8.jpg",
                 description:
                   "Complete brand transformation for a growing tech startup",
                 tags: ["Branding", "Logo", "Guidelines"],
                 color: "from-[#D8CFBC] to-[#A89A7D]",
               },
               {
+                id: 'social-media',
                 title: "EcoLife App Design",
                 category: "Print Design",
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/social-media/img2.jpg",
                 description:
                   "Sustainable living app with intuitive user experience",
                 tags: ["Mobile", "Print Design", "Sustainability"],
                 color: "from-[#D8CFBC] to-[#A89A7D]",
               },
               {
-                title: "Artisan Coffee Brand",
+                id: 'logo',
+                title: "Luxe Comfort",
                 category: "Logo Design",
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/logo/LuxeComfort.jpg",
                 description: "Handcrafted identity for premium coffee roastery",
                 tags: ["Logo", "Packaging", "Print"],
                 color: "from-[#D8CFBC] to-[#A89A7D]",
@@ -313,7 +316,7 @@ export default function HomePage() {
                     className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-0 group-hover:opacity-80 transition-opacity duration-500`}
                   ></div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <Link href={`/portfolio/${index + 1}`}>
+                    <Link href={`/portfolio/${project.id}`}>
                       <Button className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 rounded-full">
                         View Project
                       </Button>
@@ -348,7 +351,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/portfolio">
+            <Link href={`/portfolio`}>
               <Button className="bg-[#BFB399] hover:bg-[#A89A7D] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white py-3 rounded-lg font-bold transition-colors duration-300">
                 View All Projects
               </Button>

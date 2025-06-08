@@ -60,22 +60,140 @@ const projectData = {
       position: "Creative Director, Label Shaaf",
     },
   },
+  'logo': {
+    title: "Logo",
+    category: "Logo Design",
+    year: "2023",
+    client: "Luxe Comfort",
+    duration: "1 month",
+    description:
+      "Designed a sophisticated and memorable logo for Luxe Comfort, a premium home furnishings brand. The project focused on creating a visual identity that communicates luxury, comfort, and timeless elegance.",
+    challenge:
+      "The main challenge was to create a logo that balanced luxury with approachability, and could work effectively across various applications from product tags to digital platforms.",
+    solution:
+      "I developed a clean, minimalist logo using a custom wordmark with subtle design elements that evoke comfort and sophistication. The design uses negative space effectively and maintains legibility at all sizes.",
+    tags: ["Logo Design", "Branding", "Luxury"],
+    images: ["/logo/LuxeComfort.jpg"],
+    tools: ["Adobe Illustrator", "Figma"],
+    testimonial: {
+      text:
+        "The logo Tirtha created perfectly captures our brand essence. It's elegant, memorable, and works beautifully across all our materials.",
+      author: "James Wilson",
+      position: "Founder, Luxe Comfort",
+    },
+  },
   'railwire': {
     title: "Railwire",
     category: "Promotional Campaign",
-    year: "2022",
+    year: "2024",
     client: "Railwire",
-    duration: "3 months",
+    duration: "2 months",
     description:
-      "The project deals with a distinctive logo, designing business cards, menus, mockups, signs, carry bags, and other brand collateral.",
-    tags: ["Branding", "Logo Design", "Guidelines"],
+      "Developed a comprehensive promotional campaign for Railwire, a leading internet service provider. The project included creating visual assets for digital and print advertising, promotional materials, and social media content.",
+    challenge:
+      "The main challenge was to create a campaign that would stand out in a crowded market while effectively communicating the technical benefits of the service in an accessible way.",
+    solution:
+      "I designed a visually cohesive campaign using the earthy color palette with bold typography and simple illustrations to explain complex technical concepts. The campaign maintained a consistent look across all touchpoints while adapting to different formats and contexts.",
+    tags: ["Ad Design", "Campaign", "Digital"],
     images: Array.from({ length: 8 }, (_, i) => `/railwire/img${i + 1}.png`),
-    tools: ["Figma", "Adobe XD", "Photoshop"],
+    tools: ["Adobe Photoshop", "Illustrator", "After Effects"],
     testimonial: {
       text:
-        "Tirtha delivered a brand identity that perfectly captures our bakery's vision and values. The design system is not only beautiful but also incredibly functional across all our touchpoints.",
-      author: "Sarah Johnson",
-      position: "Owner, The Oven Story",
+        "The promotional campaign exceeded our expectations. It not only looked great but also effectively communicated our key messages, resulting in a significant increase in customer inquiries.",
+      author: "Rajesh Kumar",
+      position: "Marketing Director, Railwire",
+    },
+  },
+  'byd': {
+    title: "BYD",
+    category: "Logo Design",
+    year: "2024",
+    client: "BYD",
+    duration: "3 weeks",
+    description:
+      "Created a modern, forward-thinking logo redesign for BYD, a leading automotive company focusing on electric vehicles. The project aimed to refresh their visual identity while maintaining brand recognition.",
+    challenge:
+      "The challenge was to modernize the logo while respecting the brand's heritage and ensuring it would work effectively across various applications from vehicle badges to digital platforms.",
+    solution:
+      "I developed a refined logo that maintains the core elements of the original design while introducing cleaner lines and improved proportions. The new logo works seamlessly across all applications and better represents the company's focus on innovation and sustainability.",
+    tags: ["Logo Design", "Automotive", "Corporate"],
+    images: Array.from({ length: 6 }, (_, i) => `/byd/img${i + 1}.jpeg`),
+    tools: ["Adobe Illustrator", "Figma"],
+    testimonial: {
+      text:
+        "The logo redesign perfectly captures our evolution as a company while maintaining our brand recognition. It's modern, versatile, and represents our vision for the future.",
+      author: "Li Wei",
+      position: "Brand Manager, BYD",
+    },
+  },
+  'social-media': {
+    title: "Social Media",
+    category: "Social Media",
+    year: "2024",
+    client: "Various Clients",
+    duration: "Ongoing",
+    description:
+      "Developed a cohesive social media visual strategy and created engaging content for various brands across different platforms. The project focuses on maintaining brand consistency while optimizing content for each platform's unique requirements.",
+    challenge:
+      "The main challenge was creating visually consistent content that would stand out in crowded social feeds while effectively communicating key messages and driving engagement.",
+    solution:
+      "I designed a flexible template system using the earthy color palette that allows for creative variation while maintaining brand consistency. Each post is optimized for its specific platform and audience, with careful attention to typography, imagery, and layout.",
+    tags: ["Social Media", "Digital", "Content Creation"],
+    images: Array.from({ length: 6 }, (_, i) => `/social-media/img${i + 1}.png`),
+    tools: ["Adobe Photoshop", "Illustrator", "Canva"],
+  },
+  'book-cover': {
+    title: "Book Cover",
+    category: "Book Cover",
+    year: "2024",
+    client: "Publishing Houses",
+    duration: "2 weeks",
+    description:
+      "Designed compelling book covers for various genres that capture the essence of each story while standing out on both physical and digital bookshelves. Each cover is crafted to appeal to its target audience while conveying the book's tone and theme.",
+    challenge:
+      "The challenge was creating covers that would work effectively in both physical and digital formats, appeal to the target audience, and accurately represent the content while standing out in a crowded marketplace.",
+    solution:
+      "I developed covers with strong visual hierarchies, carefully selected typography, and compelling imagery that captures the essence of each book. Each design balances artistic expression with commercial appeal and readability.",
+    tags: ["Book Cover", "Publishing", "Typography"],
+    images: Array.from({ length: 3 }, (_, i) => `/book-cover/img${i + 1}.jpg`),
+    tools: ["Adobe Photoshop", "InDesign", "Illustrator"],
+  },
+  'illustrations': {
+    title: "Illustrations",
+    category: "Illustrations",
+    year: "2024",
+    client: "Various Clients",
+    duration: "Ongoing",
+    description:
+      "Created a series of custom illustrations for various clients and purposes, ranging from editorial illustrations to decorative art and informational graphics. Each illustration is tailored to its specific context and purpose.",
+    challenge:
+      "The main challenge was developing unique visual styles that would serve each project's specific needs while effectively communicating ideas and evoking the desired emotional response.",
+    solution:
+      "I created illustrations using various techniques and styles, each carefully chosen to match the project requirements. The illustrations use color, composition, and style to communicate concepts clearly while adding visual interest and personality.",
+    tags: ["Illustrations", "Art", "Visual Communication"],
+    images: Array.from({ length: 4 }, (_, i) => `/illustrations/img${i + 1}.jpg`),
+    tools: ["Adobe Illustrator", "Procreate", "Photoshop"],
+  },
+  'mayze': {
+    title: "Mayze",
+    category: "Logo Design",
+    year: "2024",
+    client: "Mayze",
+    duration: "1 month",
+    description:
+      "Designed a distinctive logo and visual identity for Mayze, a new tech startup focused on innovative smart home solutions. The project aimed to establish a modern, trustworthy brand that would appeal to tech-savvy consumers.",
+    challenge:
+      "The challenge was creating a visual identity that would stand out in the crowded tech marketplace while conveying innovation, reliability, and user-friendliness.",
+    solution:
+      "I developed a clean, geometric logo with a subtle reference to connectivity and home, using the earthy color palette to differentiate from the typical blue tech branding. The identity system includes flexible elements that work across digital and physical touchpoints.",
+    tags: ["Logo Design", "Tech", "Branding"],
+    images: Array.from({ length: 3 }, (_, i) => `/mayze/img${i + 1}.jpg`),
+    tools: ["Figma", "Adobe Illustrator"],
+    testimonial: {
+      text:
+        "Tirtha created a logo and identity that perfectly positions us in the market. The design is distinctive, memorable, and effectively communicates our brand values.",
+      author: "Alex Rivera",
+      position: "CEO, Mayze",
     },
   }
 }

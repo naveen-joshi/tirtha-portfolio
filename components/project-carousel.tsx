@@ -9,25 +9,25 @@ import Link from "next/link";
 
 const featuredProjects = [
   {
-    id: 1,
-    title: "TechFlow Brand Identity",
+    id: 'the-oven-story',
+    title: "The Oven Story",
     category: "Branding",
-    image: "/img1.jpg",
-    description: "Complete brand identity for a tech startup",
+    image: "/the-oven-story/img1.jpg",
+    description: "Brand identity for a bakery cum dessert boutique",
   },
   {
-    id: 2,
-    title: "EcoLife Mobile App",
-    category: "Print Design",
-    image: "/img2.jpg",
-    description: "Sustainable living mobile application design",
+    id: 'railwire',
+    title: "Railwire",
+    category: "Promotional Campaign",
+    image: "/railwire/img2.png",
+    description: "Comprehensive campaign for internet service provider",
   },
   {
-    id: 3,
-    title: "Artisan Coffee Logo",
+    id: 'byd',
+    title: "BYD",
     category: "Logo Design",
-    image: "/img3.jpg",
-    description: "Handcrafted logo for local coffee roastery",
+    image: "/byd/img5.jpeg",
+    description: "Modern logo redesign for automotive company",
   },
 ];
 
