@@ -105,13 +105,12 @@ export default function AboutPage() {
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A passionate graphic designer with over 5 years of experience creating compelling visual stories that
-                  connect brands with their audiences.
+                  A passionate graphic designer with over 3 years of experience creating compelling visual stories that connect brands with their audiences.
                 </p>
               </div>
 
-              <a href="/Tirtha Jain- Resume.pdf" download>
-                <Button className="group relative overflow-hidden bg-[#A89A7D] hover:bg-[#8F8675] text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
+              <a className="mt-4" href="/Tirtha Jain- Resume.pdf" download>
+                <Button className="group relative overflow-hidden bg-[#A89A7D] hover:bg-[#8F8675] text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500 mt-4">
                   <span className="relative flex items-center">
                     <Download className="w-4 h-4 mr-2" />
                     Download Resume
