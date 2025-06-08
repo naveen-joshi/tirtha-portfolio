@@ -86,12 +86,12 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-32 w-24 h-24 bg-purple-500 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-pink-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-slate-400 to-neutral-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-white-400 to-gray-500 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-zinc-400 to-neutral-500 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
                   About
-                  <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <span className="block text-[#A89A7D]">
                     Tirtha
                   </span>
                 </h1>
@@ -110,9 +110,14 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full">
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
+              <Button className="group relative overflow-hidden text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
+                <span className="relative flex items-center">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                  <div className="ml-2 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </div>
+                </span>
               </Button>
             </div>
 
@@ -160,7 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Tools Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-20 bg-[#E3DCD5] dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Tools & Technologies</h2>
@@ -198,7 +203,7 @@ export default function AboutPage() {
               <Card key={index} className="border-0 shadow-lg dark:shadow-gray-700 hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#A89A7D] rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold">{achievement.year.slice(-2)}</span>
                     </div>
                     <div>
@@ -217,14 +222,14 @@ export default function AboutPage() {
       </section>
 
       {/* Education & Experience */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-20 bg-[#E3DCD5] dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Education */}
             <div>
-              <div className="flex items-center mb-8">
-                <GraduationCap className="w-8 h-8 text-blue-600 mr-3" />
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Education</h2>
+              <div className="flex mb-8">
+                <GraduationCap className="w-8 h-8 text-[#A89A7D] mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Education</h2>
               </div>
 
               <div className="space-y-6">
@@ -232,7 +237,7 @@ export default function AboutPage() {
                   <Card key={index} className="border-0 shadow-lg dark:shadow-gray-700">
                     <CardContent className="p-6">
                       <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
-                      <div className="flex items-center text-blue-600 mb-2">
+                      <div className="flex items-center text-[#A89A7D] mb-2">
                         <MapPin className="w-4 h-4 mr-1" />
                         <span className="text-sm">{edu.institution}</span>
                       </div>
@@ -250,7 +255,7 @@ export default function AboutPage() {
             {/* Experience */}
             <div>
               <div className="flex items-center mb-8">
-                <Briefcase className="w-8 h-8 text-purple-600 mr-3" />
+                <Briefcase className="w-8 h-8 text-[#A89A7D] mr-3" />
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Experience</h2>
               </div>
 
@@ -259,7 +264,7 @@ export default function AboutPage() {
                   <Card key={index} className="border-0 shadow-lg">
                     <CardContent className="p-6">
                       <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{exp.position}</h3>
-                      <div className="flex items-center text-purple-600 mb-2">
+                      <div className="flex items-center text-[#A89A7D] mb-2">
                         <MapPin className="w-4 h-4 mr-1" />
                         <span className="text-sm">{exp.company}</span>
                       </div>
@@ -278,26 +283,33 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-[#857F75] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Let's create something amazing together. I'm always excited to take on new challenges and bring fresh ideas
             to life.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mt-2">
             <Link href="/#contact">
-              <Button size="lg" variant="secondary" className="px-8 py-3 rounded-full">
-                Get In Touch
+              <Button size="lg" className="group relative overflow-hidden text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
+                <span className="relative flex items-center">
+                  Get In Touch
+                  <div className="ml-2 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </div>
+                </span>
               </Button>
             </Link>
             <Link href="/portfolio">
               <Button
-                size="lg"
                 variant="outline"
-                className="px-8 py-3 rounded-full border-white text-white hover:bg-white hover:text-blue-600"
+                size="lg"
+                className="group px-10 py-4 rounded-full text-lg font-medium border-2 border-white hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                View Portfolio
+                <span className="text-black group-hover:text-slate-700 transition-all duration-300">
+                  View Portfolio
+                </span>
               </Button>
             </Link>
           </div>

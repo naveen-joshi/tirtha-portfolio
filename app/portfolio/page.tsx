@@ -9,7 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 
-const categories = ["All", "Logo Design", "Branding", "UI/UX", "Web Design", "Print Design"]
+const categories = ["All", "Logo Design", "Branding", "Print Design", "Ad Design", "UI/UX Design"]
 
 const projects = [
   {
@@ -26,11 +26,11 @@ const projects = [
   {
     id: 2,
     title: "EcoLife Mobile App",
-    category: "UI/UX",
+    category: "UI/UX Design",
     image: "/placeholder.svg?height=400&width=600",
     description:
       "User interface design for a sustainability-focused mobile application with intuitive user experience.",
-    tags: ["UI/UX", "Mobile", "Sustainability"],
+    tags: ["UI/UX Design", "Mobile", "Sustainability"],
     year: "2023",
     client: "EcoLife Solutions",
   },
@@ -47,10 +47,10 @@ const projects = [
   {
     id: 4,
     title: "FinanceHub Website",
-    category: "Web Design",
+    category: "Ad Design",
     image: "/placeholder.svg?height=400&width=600",
     description: "Modern website design for a financial services company with focus on trust and professionalism.",
-    tags: ["Web Design", "Finance", "Corporate"],
+    tags: ["Ad Design", "Finance", "Corporate"],
     year: "2022",
     client: "FinanceHub",
   },
@@ -78,10 +78,10 @@ const projects = [
   {
     id: 7,
     title: "FoodieApp Interface",
-    category: "UI/UX",
+    category: "UI/UX Design",
     image: "/placeholder.svg?height=400&width=600",
     description: "Intuitive mobile app interface design for a food delivery service with seamless user experience.",
-    tags: ["UI/UX", "Mobile", "Food"],
+    tags: ["UI/UX Design", "Mobile", "Food"],
     year: "2022",
     client: "FoodieApp",
   },
@@ -109,17 +109,19 @@ export default function PortfolioPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-32 w-24 h-24 bg-purple-500 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-pink-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-slate-400 to-neutral-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-white-400 to-gray-500 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-zinc-400 to-neutral-500 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">My Portfolio</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              My <span className="text-[#A89A7D]">Portfolio</span>
+            </h1>
           </div>
         </div>
       </section>
@@ -135,7 +137,7 @@ export default function PortfolioPage() {
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
                   activeCategory === category
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                    ? "bg-[#A89A7D] text-white"
                     : "hover:bg-gray-50 dark:hover:bg-gray-700"
                 }`}
               >
@@ -169,7 +171,7 @@ export default function PortfolioPage() {
                         <Link href={`/portfolio/${project.id}`}>
                           <Button
                             size="sm"
-                            className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30"
+                            className="bg-[#A89A7D]/40 backdrop-blur-sm text-white border-[#A89A7D]/30 hover:bg-[#A89A7D]/60"
                           >
                             <Eye className="w-4 h-4 mr-1" />
                             View
@@ -178,7 +180,7 @@ export default function PortfolioPage() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30"
+                          className="bg-[#A89A7D]/40 backdrop-blur-sm text-white border-[#A89A7D]/30 hover:bg-[#A89A7D]/60"
                         >
                           <ExternalLink className="w-4 h-4 mr-1" />
                           Live
@@ -196,7 +198,7 @@ export default function PortfolioPage() {
                     <span className="text-xs text-gray-500 dark:text-gray-400">{project.year}</span>
                   </div>
 
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -219,25 +221,32 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-[#857F75] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">Like What You See?</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl dark:text-gray-300 max-w-2xl mx-auto">
             Let's discuss your next project and create something amazing together.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mt-4">
             <Link href="/#contact">
-              <Button size="lg" variant="secondary" className="px-8 py-3 rounded-full">
-                Start a Project
+              <Button size="lg" className="group relative overflow-hidden text-white px-10 py-4 rounded-full text-lg font-medium shadow-2xl transition-all duration-500">
+                <span className="relative flex items-center">
+                  Start a Project
+                  <div className="ml-2 w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </div>
+                </span>
               </Button>
             </Link>
             <Link href="/about">
               <Button
-                size="lg"
                 variant="outline"
-                className="px-8 py-3 rounded-full border-white text-white hover:bg-white hover:text-blue-600"
+                size="lg"
+                className="group px-10 py-4 rounded-full text-lg font-medium border-2 border-white hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Learn More About Me
+                <span className="text-black group-hover:text-slate-700 transition-all duration-300">
+                  Learn More About Me
+                </span>
               </Button>
             </Link>
           </div>

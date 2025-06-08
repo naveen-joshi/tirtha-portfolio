@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Menu, X, Sparkles } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Sparkles } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Portfolio", href: "/portfolio" },
-  ]
+  ];
 
   return (
     <nav
@@ -51,7 +51,9 @@ export function Navigation() {
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Tirtha
               </span>
-              <span className="text-xs text-gray-500 -mt-1">Creative Designer</span>
+              <span className="text-xs text-gray-500 -mt-1">
+                Creative Designer
+              </span>
             </div>
           </Link>
 
@@ -65,8 +67,8 @@ export function Navigation() {
                   pathname === item.href
                     ? "text-blue-600"
                     : isScrolled
-                      ? "text-gray-700 hover:text-blue-600"
-                      : "text-gray-800 hover:text-blue-600"
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-gray-800 hover:text-blue-600"
                 }`}
               >
                 {pathname === item.href && (
@@ -81,8 +83,7 @@ export function Navigation() {
               <ThemeToggle />
               <div className="w-px h-6 bg-gradient-to-b from-transparent via-gray-300 to-transparent dark:via-gray-700"></div>
               <Link href="/#contact">
-                <Button className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Button className="relative overflow-hidden text-white rounded-full px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-300 group">
                   <span className="relative">Let's Talk</span>
                 </Button>
               </Link>
@@ -133,7 +134,9 @@ export function Navigation() {
               ))}
               <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Theme
+                  </span>
                   <ThemeToggle />
                 </div>
                 <Link href="/#contact" onClick={() => setIsOpen(false)}>
@@ -147,5 +150,5 @@ export function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }

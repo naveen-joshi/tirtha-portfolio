@@ -104,14 +104,14 @@
 }
 
 /* Enhanced gradient text with better browser support */
-.gradient-text-enhanced {
+/* .gradient-text-enhanced {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 200% 200%;
   animation: gradientShift 4s ease infinite;
-}
+} */
 
 @keyframes gradientShift {
   0% {
@@ -138,8 +138,9 @@
 
 /* Smooth transitions for all interactive elements */
 * {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-    transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
@@ -178,13 +179,17 @@
   animation-delay: 2.5s;
 }
 
-.grid-pattern {
+/* .grid-pattern {
   background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.3) 1px, transparent 0);
   background-size: 50px 50px;
-}
+} */
 
 .dark .grid-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(59, 130, 246, 0.15) 1px,
+    transparent 0
+  );
 }
 
 /* Custom scrollbar */
@@ -208,3 +213,41 @@
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
+
+.custom-bg {
+  background: #d8cfbc;
+}
+
+.card-shadow {
+  box-shadow: 0 4px 10px 0 #858675;
+}
+
+/* Marquee animation for work gallery */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-paused {
+  animation-play-state: paused;
+}
+
+/* Work gallery styles */
+.brand-border-artisan { border-color: #A89A7D; }
+.brand-border-ecolife { border-color: #6B8E23; }
+.brand-border-techflow { border-color: #4682B4; }
+.brand-border-urban { border-color: #708090; }
+.brand-border-wellness { border-color: #8FBC8F; }
+.brand-border-culinary { border-color: #CD5C5C; }
+.brand-border-adventure { border-color: #B8860B; }
+.brand-border-harmony { border-color: #9370DB; }
+.brand-border-coastal { border-color: #4682B4; }
+.brand-border-vintage { border-color: #CD853F; }

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const featuredProjects = [
   {
@@ -18,7 +18,7 @@ const featuredProjects = [
   {
     id: 2,
     title: "EcoLife Mobile App",
-    category: "UI/UX",
+    category: "Print Design",
     image: "/placeholder.svg?height=400&width=600",
     description: "Sustainable living mobile application design",
   },
@@ -29,29 +29,43 @@ const featuredProjects = [
     image: "/placeholder.svg?height=400&width=600",
     description: "Handcrafted logo for local coffee roastery",
   },
-]
+];
 
 export function ProjectCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === featuredProjects.length - 1 ? 0 : prevIndex + 1))
-    }, 5000)
+      setCurrentIndex((prevIndex) =>
+        prevIndex === featuredProjects.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? featuredProjects.length - 1 : currentIndex - 1)
-  }
+    setCurrentIndex(
+      currentIndex === 0 ? featuredProjects.length - 1 : currentIndex - 1
+    );
+    console.log(
+      "Previous clicked, new index:",
+      currentIndex === 0 ? featuredProjects.length - 1 : currentIndex - 1
+    );
+  };
 
   const goToNext = () => {
-    setCurrentIndex(currentIndex === featuredProjects.length - 1 ? 0 : currentIndex + 1)
-  }
+    setCurrentIndex(
+      currentIndex === featuredProjects.length - 1 ? 0 : currentIndex + 1
+    );
+    console.log(
+      "Next clicked, new index:",
+      currentIndex === featuredProjects.length - 1 ? 0 : currentIndex + 1
+    );
+  };
 
   return (
-    <div className="relative max-w-lg mx-auto">
+    <div className="relative w-full mx-auto">
       <Card className="border-0 shadow-2xl overflow-hidden bg-white/80 backdrop-blur-sm">
         <div className="relative">
           <Image
@@ -59,26 +73,26 @@ export function ProjectCarousel() {
             alt={featuredProjects[currentIndex].title}
             width={600}
             height={400}
-            className="w-full h-80 object-cover"
+            className="w-full h-96 object-cover"
           />
 
           {/* Navigation Buttons */}
           <Button
             variant="ghost"
-            size="sm"
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
+            size="lg"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#A89A7D] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
             onClick={goToPrevious}
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-6 h-6" />
           </Button>
 
           <Button
             variant="ghost"
-            size="sm"
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
+            size="lg"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#A89A7D] hover:bg-[#A89A7D]/80 text-white rounded-full p-3 shadow-lg z-10"
             onClick={goToNext}
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-6 h-6" />
           </Button>
 
           {/* Gradient Overlay */}
@@ -86,9 +100,15 @@ export function ProjectCarousel() {
 
           {/* Content */}
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <div className="text-sm opacity-80 mb-1">{featuredProjects[currentIndex].category}</div>
-            <h3 className="text-xl font-semibold mb-2">{featuredProjects[currentIndex].title}</h3>
-            <p className="text-sm opacity-90 mb-4">{featuredProjects[currentIndex].description}</p>
+            <div className="text-sm opacity-80 mb-1">
+              {featuredProjects[currentIndex].category}
+            </div>
+            <h3 className="text-xl font-semibold mb-2">
+              {featuredProjects[currentIndex].title}
+            </h3>
+            <p className="text-sm opacity-90 mb-4">
+              {featuredProjects[currentIndex].description}
+            </p>
             <Link href={`/portfolio/${featuredProjects[currentIndex].id}`}>
               <Button size="sm" variant="secondary" className="rounded-full">
                 View Project
@@ -104,12 +124,14 @@ export function ProjectCarousel() {
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "bg-blue-600 w-8" : "bg-gray-300 hover:bg-gray-400"
+              index === currentIndex
+                ? "bg-blue-600 w-8"
+                : "bg-gray-300 hover:bg-gray-400"
             }`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }
