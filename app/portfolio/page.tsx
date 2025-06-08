@@ -13,10 +13,10 @@ const categories = ["All", "Logo Design", "Branding", "Print Design", "Ad Design
 
 const projects = [
   {
-    id: 1,
+    id: 'the-oven-story',
     title: "The Oven Story",
     category: "Branding",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/the-oven-story/img1.jpg",
     description:
       "Complete brand identity design for the oven story including logo, color palette, and brand guidelines.",
     tags: ["Branding", "Logo Design", "Guidelines"],
@@ -24,10 +24,10 @@ const projects = [
     client: "The Oven Story",
   },
   {
-    id: 2,
-    title: "EcoLife Mobile App",
+    id: 'label-shaaf',
+    title: "Label Shaaf",
     category: "UI/UX Design",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/label-shaaf/img1.png",
     description:
       "User interface design for a sustainability-focused mobile application with intuitive user experience.",
     tags: ["UI/UX Design", "Mobile", "Sustainability"],
@@ -153,22 +153,22 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <Card
-                key={project.id}
-                className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800"
-              >
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex space-x-2">
-                        <Link href={`/portfolio/${project.id}`}>
+              <Link href={`/portfolio/${project.id}`} className="block">
+                <Card
+                  key={project.id}
+                  className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800 cursor-pointer"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <div className="flex space-x-2">
                           <Button
                             size="sm"
                             className="bg-[#A89A7D]/70 dark:bg-[#857F75]/70 backdrop-blur-sm text-white border-transparent hover:bg-[#A89A7D] dark:hover:bg-[#857F75] transition-colors duration-300"
@@ -176,45 +176,37 @@ export default function PortfolioPage() {
                             <Eye className="w-4 h-4 mr-1" />
                             View
                           </Button>
-                        </Link>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="bg-[#A89A7D]/40 dark:bg-[#857F75]/40 backdrop-blur-sm text-white border-[#A89A7D]/30 dark:border-[#857F75]/30 hover:bg-[#A89A7D]/60 dark:hover:bg-[#857F75]/60 transition-colors duration-300"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-1" />
-                          Live
-                        </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {project.category}
-                    </Badge>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{project.year}</span>
-                  </div>
-
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {tag}
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="secondary" className="text-xs">
+                        {project.category}
                       </Badge>
-                    ))}
-                  </div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">{project.year}</span>
+                    </div>
 
-                  <div className="text-xs text-gray-500 dark:text-gray-400">Client: {project.client}</div>
-                </CardContent>
-              </Card>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Client: {project.client}</div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

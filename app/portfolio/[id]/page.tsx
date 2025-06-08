@@ -8,45 +8,58 @@ import { Navigation } from "@/components/navigation"
 
 // This would typically come from a database or API
 const projectData = {
-  1: {
+  'the-oven-story': {
     title: "The Oven Story",
     category: "Branding",
     year: "2023",
     client: "The Oven Story Inc.",
     duration: "3 months",
     description:
-      "The Oven Story approached me to create a comprehensive brand identity that would position them as a forward-thinking technology company. The challenge was to create a brand that felt both innovative and trustworthy, appealing to both tech-savvy users and enterprise clients.",
+      "The Oven Story approached me to create a comprehensive brand identity that would position them as a forward-thinking bakery brand. The challenge was to create a brand that felt both artisanal and approachable, appealing to both casual customers and catering clients.",
     challenge:
-      "The main challenge was creating a brand identity that could work across multiple touchpoints while maintaining consistency and impact. The logo needed to be versatile enough for digital applications, print materials, and merchandise.",
+      "The main challenge was creating a brand identity that could work across multiple touchpoints while maintaining consistency and impact. The logo needed to be versatile enough for digital applications, print materials, and packaging.",
     solution:
-      "I developed a clean, modern logo featuring geometric elements that suggest flow and connectivity. The color palette combines deep blues with vibrant accents, creating a professional yet approachable feel. The typography system uses a modern sans-serif that's highly legible across all applications.",
+      "I developed a comprehensive brand identity system that included a versatile logo, a refined color palette, typography guidelines, and custom iconography. The design language was applied to various touchpoints including website, packaging, and marketing materials.",
     results:
-      "The new brand identity helped TechFlow secure $2M in Series A funding and increased their brand recognition by 150% within six months of launch.",
-    images: [
-      "/theovenstory/TheOvenStory1.jpg",
-      "/theovenstory/TheOvenStory2.jpg",
-      "/theovenstory/TheOvenStory3.jpg",
-      "/theovenstory/TheOvenStory4.jpg",
-      "/theovenstory/TheOvenStory5.jpg",
-      "/theovenstory/TheOvenStory6.jpg",
-      "/theovenstory/TheOvenStory7.jpg",
-      "/theovenstory/TheOvenStory8.jpg",
-      
-    ],
+      "The new brand identity helped The Oven Story increase their customer base by 75% and expand to two new locations within six months of launch.",
+    images: Array.from({ length: 8 }, (_, i) => `/the-oven-story/img${i + 1}.jpg`),
     tags: ["Branding", "Logo Design", "Guidelines", "Corporate Identity"],
     tools: ["Adobe Illustrator", "Adobe Photoshop", "Adobe InDesign"],
     testimonial: {
-      text: "Tirtha's work exceeded our expectations. The brand identity perfectly captures our vision and has been instrumental in our growth.",
+      text:
+        "Tirtha delivered a brand identity that perfectly captures our bakery's vision and values. The design system is not only beautiful but also incredibly functional across all our touchpoints.",
       author: "Sarah Johnson",
-      position: "CEO, TechFlow Inc.",
+      position: "Owner, The Oven Story",
+    },
+  },
+  'label-shaaf': {
+    title: "Label Shaaf",
+    category: "UI/UX Design",
+    year: "2023",
+    client: "Label Shaaf",
+    duration: "4 months",
+    description:
+      "Label Shaaf approached me to design a user-friendly e-commerce interface for their fashion brand. The goal was to create an elegant shopping experience that showcased their products while maintaining strong brand identity.",
+    challenge:
+      "The main challenge was balancing aesthetic appeal with functional usability, ensuring the interface was intuitive while still reflecting the premium nature of the brand.",
+    solution:
+      "I created a clean, minimalist interface with thoughtful navigation, high-quality product displays, and a streamlined checkout process. The design incorporated the brand's earthy color palette throughout the user journey.",
+    results:
+      "The new interface increased conversion rates by 35% and reduced cart abandonment by 28% within the first quarter after launch.",
+    images: Array.from({ length: 8 }, (_, i) => `/label-shaaf/img${i + 1}.png`),
+    tags: ["UI/UX Design", "E-commerce", "Fashion"],
+    tools: ["Figma", "Adobe XD", "Photoshop"],
+    testimonial: {
+      text:
+        "Tirtha's design work transformed our online presence. The interface is beautiful, intuitive, and has significantly improved our customer engagement and sales.",
+      author: "Aisha Malik",
+      position: "Creative Director, Label Shaaf",
     },
   },
 }
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {
-  // Convert string ID to number for type safety
-  const projectId = parseInt(params.id, 10)
-  const project = projectData[projectId as keyof typeof projectData]
+  const project = projectData[params.id as keyof typeof projectData]
 
   if (!project) {
     return (
@@ -103,11 +116,6 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   </div>
                 </div>
               </div>
-
-              <Button className="bg-[#A89A7D] hover:bg-[#8F8675] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white transition-colors duration-300">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                View Live Project
-              </Button>
             </div>
 
             <div className="relative">
