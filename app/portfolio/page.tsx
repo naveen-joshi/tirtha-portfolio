@@ -9,6 +9,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 
+// Note: We can't export metadata from a client component
+// Metadata is handled at the layout level instead
+
 const categories = ["All", "Logo Design", "Branding", "Print Design", "Ad Design"]
 
 const projects = [

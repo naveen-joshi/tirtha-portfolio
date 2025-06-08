@@ -18,10 +18,18 @@ import {
 } from "lucide-react";
 import { BehanceIcon } from "@/components/behance-icon";
 import Link from "next/link";
+import Image from "next/image";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { Navigation } from "@/components/navigation";
-import Image from "next/image";
 import { WorkGallery } from "@/components/work-gallery";
+import { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: pageMetadata.home.title,
+  description: pageMetadata.home.description,
+  keywords: pageMetadata.home.keywords,
+};
 
 const services = [
   {

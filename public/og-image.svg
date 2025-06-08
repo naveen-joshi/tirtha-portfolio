@@ -1,0 +1,8 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#E3DCD5"/>
+  <rect x="50" y="50" width="1100" height="530" fill="#D8CFBC" rx="8"/>
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#8F8675">Tirtha Portfolio</text>
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#857F75">Professional Graphic Designer</text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#A89A7D">Branding • Logo Design • Print Design • Digital Media</text>
+  <rect x="400" y="420" width="400" height="4" fill="#BFB399"/>
+</svg>

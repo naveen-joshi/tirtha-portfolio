@@ -137,13 +137,13 @@ export function WorkGallery() {
             >
               <Link href="#portfolio" className="group">
                 <div className="relative overflow-hidden rounded-lg shadow-lg">
-                  <div className={`absolute bottom-0 left-0 w-full h-1 ${getCategoryColor(item.category)}`}></div>
+                  <div className={`absolute bottom-0 left-0 w-full h-1.5 ${getCategoryColor(item.category)}`}></div>
                   <Image
                     src={item.image}
                     alt={item.title}
-                    width={300}
-                    height={200}
-                    className="w-[280px] h-[200px] object-cover transition-transform duration-500 group-hover:scale-110"
+                    width={400}
+                    height={300}
+                    className="w-[340px] h-[240px] object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               </Link>

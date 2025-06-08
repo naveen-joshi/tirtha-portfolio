@@ -2,9 +2,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Download, Calendar, MapPin, GraduationCap, Briefcase } from "lucide-react"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
+import { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
+import { pageMetadata } from "@/lib/metadata"
+
+export const metadata: Metadata = {
+  title: pageMetadata.about.title,
+  description: pageMetadata.about.description,
+  keywords: pageMetadata.about.keywords,
+}
 
 const tools = [
   "Adobe Photoshop",
@@ -124,13 +132,13 @@ export default function AboutPage() {
 
             <div className="relative">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20"></div>
+                <div className="absolute inset-0"></div>
                 <Image
                   src="/placeholder.svg?height=500&width=400"
                   alt="Tirtha Jain"
                   width={400}
                   height={500}
-                  className="relative z-10 w-full rounded-2xl shadow-2xl"
+                  className="relative z-10 w-full rounded-2xl shadow-xl"
                 />
               </div>
             </div>

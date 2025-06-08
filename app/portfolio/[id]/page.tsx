@@ -9,6 +9,7 @@ import Image from "next/image"
 import React, { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { ImageLightbox } from "@/components/image-lightbox"
+import Head from "next/head"
 
 // This would typically come from a database or API
 const projectData = {
