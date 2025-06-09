@@ -147,19 +147,19 @@ export default function AboutPage() {
       </section>
 
       {/* Bio Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">My Story</h2>
-            <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
-              <p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-[#E3DCD5] mb-8 text-center">My Story</h2>
+            <div className="prose prose-lg max-w-none text-gray-600 dark:text-[#D8CFBC]/90 leading-relaxed space-y-6">
+              <p className="dark:text-[#D8CFBC]/90">
               As a passionate and dedicated Graphic Designer with 3 years of professional experience, I bring a unique blend of creativity and technical skill to every project. Being self-taught, I have cultivated a keen eye for aesthetics and a deep understanding of design principles through hands-on practice and continuous learning.
               </p>
-              <p>
+              <p className="dark:text-[#D8CFBC]/90">
               My journey in graphic design is driven by an unwavering enthusiasm for art and a commitment to creating visually compelling and impactful designs. I am proficient in various design software and have a proven ability to conceptualize and execute designs that effectively communicate the intended message.
               </p>
-              <p>
-              I thrive in collaborative environments and am always eager to embrace new challenges that push the boundaries of my creativity. With a meticulous approach to detail and a passion for staying current with industry trends, I am dedicated to delivering high-quality, innovative design solutions that meet and exceed client expectations.
+              <p className="dark:text-[#D8CFBC]/90">
+              I thrive in collaborative environments and am always eager to embrace new challenges that push the boundaries of my creativity. With a meticulous approach to detail and a passion for staying current with industry trends, I am dedicated to delivering high-quality, innovative design solutions that meet and exceed client expectations.
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function AboutPage() {
               <Badge
                 key={index}
                 variant="secondary"
-                className="px-4 py-2 text-sm bg-white/80 dark:bg-gray-800 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 transition-colors duration-300"
+                className="px-4 py-2 text-sm bg-white/80 dark:bg-[#3A3A3A] backdrop-blur-sm hover:bg-white dark:hover:bg-[#4A4A4A] dark:text-[#D8CFBC] transition-colors duration-300"
               >
                 {tool}
               </Badge>
@@ -202,16 +202,16 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="border-0 shadow-lg dark:shadow-gray-700 hover:shadow-xl transition-shadow duration-300">
+              <Card key={index} className="border-0 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A] hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#A89A7D] rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold">{achievement.year.slice(-2)}</span>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{achievement.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">{achievement.organization}</p>
-                      <Badge variant="outline" className="text-xs">
+                      <h3 className="font-semibold text-gray-900 dark:text-[#E3DCD5] mb-1">{achievement.title}</h3>
+                      <p className="text-gray-600 dark:text-[#D8CFBC]/80 text-sm mb-2">{achievement.organization}</p>
+                      <Badge variant="outline" className="text-xs dark:bg-[#3A3A3A] dark:text-[#D8CFBC] dark:border-[#4A4A4A]">
                         {achievement.year}
                       </Badge>
                     </div>
@@ -236,18 +236,18 @@ export default function AboutPage() {
 
               <div className="space-y-6">
                 {education.map((edu, index) => (
-                  <Card key={index} className="border-0 shadow-lg dark:shadow-gray-700">
+                  <Card key={index} className="border-0 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
                     <CardContent className="p-6">
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
+                      <h3 className="font-semibold text-gray-900 dark:text-[#E3DCD5] mb-2">{edu.degree}</h3>
                       <div className="flex items-center text-[#A89A7D] mb-2">
                         <MapPin className="w-4 h-4 mr-1" />
-                        <span className="text-sm">{edu.institution}</span>
+                        <span className="text-sm dark:text-[#D8CFBC]">{edu.institution}</span>
                       </div>
-                      <div className="flex items-center text-gray-500 mb-3">
+                      <div className="flex items-center text-gray-500 dark:text-[#A89A7D] mb-3">
                         <Calendar className="w-4 h-4 mr-1" />
-                        <span className="text-sm">{edu.year}</span>
+                        <span className="text-sm dark:text-[#D8CFBC]">{edu.year}</span>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{edu.description}</p>
+                      <p className="text-gray-600 dark:text-[#D8CFBC]/80 text-sm leading-relaxed">{edu.description}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -263,18 +263,18 @@ export default function AboutPage() {
 
               <div className="space-y-6">
                 {experience.map((exp, index) => (
-                  <Card key={index} className="border-0 shadow-lg">
+                  <Card key={index} className="border-0 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
                     <CardContent className="p-6">
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{exp.position}</h3>
+                      <h3 className="font-semibold text-gray-900 dark:text-[#E3DCD5] mb-2">{exp.position}</h3>
                       <div className="flex items-center text-[#A89A7D] mb-2">
                         <MapPin className="w-4 h-4 mr-1" />
-                        <span className="text-sm">{exp.company}</span>
+                        <span className="text-sm dark:text-[#D8CFBC]">{exp.company}</span>
                       </div>
-                      <div className="flex items-center text-gray-500 mb-3">
+                      <div className="flex items-center text-gray-500 dark:text-[#A89A7D] mb-3">
                         <Calendar className="w-4 h-4 mr-1" />
-                        <span className="text-sm">{exp.period}</span>
+                        <span className="text-sm dark:text-[#D8CFBC]">{exp.period}</span>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{exp.description}</p>
+                      <p className="text-gray-600 dark:text-[#D8CFBC]/80 text-sm leading-relaxed">{exp.description}</p>
                     </CardContent>
                   </Card>
                 ))}

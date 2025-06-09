@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +17,7 @@ import {
   Twitter,
   Instagram,
   Sparkles,
+  CheckCircle,
 } from "lucide-react";
 import { BehanceIcon } from "@/components/behance-icon";
 import Link from "next/link";
@@ -22,14 +25,8 @@ import Image from "next/image";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { Navigation } from "@/components/navigation";
 import { WorkGallery } from "@/components/work-gallery";
-import { Metadata } from "next";
-import { pageMetadata } from "@/lib/metadata";
-
-export const metadata: Metadata = {
-  title: pageMetadata.home.title,
-  description: pageMetadata.home.description,
-  keywords: pageMetadata.home.keywords,
-};
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const services = [
   {
@@ -66,6 +63,59 @@ const achievements = [
 ];
 
 export default function HomePage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState<{name?: string; email?: string; message?: string}>({});
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
+  const validateForm = () => {
+    const newErrors: {name?: string; email?: string; message?: string} = {};
+    let isValid = true;
+    
+    // Validate name
+    if (!name.trim()) {
+      newErrors.name = "Name is required";
+      isValid = false;
+    }
+    
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) {
+      newErrors.email = "Email is required";
+      isValid = false;
+    } else if (!emailRegex.test(email)) {
+      newErrors.email = "Please enter a valid email address";
+      isValid = false;
+    }
+    
+    // Validate message
+    if (!message.trim()) {
+      newErrors.message = "Message is required";
+      isValid = false;
+    } else if (message.trim().length < 10) {
+      newErrors.message = "Message should be at least 10 characters";
+      isValid = false;
+    }
+    
+    setErrors(newErrors);
+    return isValid;
+  };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (validateForm()) {
+      // In a real application, you would send the form data to a server here
+      // For now, we'll just show the success dialog
+      setIsDialogOpen(true);
+      
+      // Reset form
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
+  };
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navigation />
@@ -244,16 +294,16 @@ export default function HomePage() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:-translate-y-2"
+                className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A] backdrop-blur-sm hover:-translate-y-2"
               >
                 <CardContent className="p-8 text-center">
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5] mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-gray-600 dark:text-[#D8CFBC]/80 leading-relaxed">
                     {service.description}
                   </p>
                 </CardContent>
@@ -308,7 +358,7 @@ export default function HomePage() {
               <Link href={`/portfolio/${project.id}`} key={index} className="block cursor-pointer">
                 <Card
                   key={index}
-                  className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800"
+                  className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden bg-white dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]"
                 >
                   <div className="relative overflow-hidden">
                     <Image
@@ -329,14 +379,14 @@ export default function HomePage() {
                   </div>
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs dark:bg-[#3A3A3A] dark:text-[#D8CFBC] dark:border-[#4A4A4A]">
                         {project.category}
                       </Badge>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5] mb-2 group-hover:text-[#A89A7D] transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-600 dark:text-[#D8CFBC]/80 text-sm leading-relaxed">
                       {project.description}
                     </p>
                   </CardContent>
@@ -406,7 +456,7 @@ export default function HomePage() {
               },
             ].map((process, index) => (
               <div key={index} className="relative group">
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm h-full">
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A] backdrop-blur-sm h-full">
                   <CardContent className="p-8 text-center relative">
                     <div
                       className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 ${process.color} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg`}
@@ -416,10 +466,10 @@ export default function HomePage() {
                     <div className="mt-8 mb-4 text-4xl group-hover:scale-110 transition-transform duration-300">
                       {process.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5] mb-3">
                       {process.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                    <p className="text-gray-600 dark:text-[#D8CFBC]/80 leading-relaxed text-sm">
                       {process.description}
                     </p>
                   </CardContent>
@@ -701,53 +751,90 @@ export default function HomePage() {
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+            <Card className="border-0 shadow-xl bg-white/80 dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A] backdrop-blur-sm">
               <CardContent className="p-8">
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-[#E3DCD5] mb-2">
                         Your Name
                       </label>
                       <Input
-                        className="w-full dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                        className={`w-full dark:bg-[#3A3A3A] dark:border-[#4A4A4A] dark:text-[#E3DCD5] dark:placeholder:text-[#857F75]/70 focus:dark:border-[#A89A7D] ${errors.name ? 'border-red-500 dark:border-red-500' : ''}`}
                         placeholder="John Doe"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
+                      {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-[#E3DCD5] mb-2">
                         Your Email
                       </label>
                       <Input
-                        className="w-full dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                        className={`w-full dark:bg-[#3A3A3A] dark:border-[#4A4A4A] dark:text-[#E3DCD5] dark:placeholder:text-[#857F75]/70 focus:dark:border-[#A89A7D] ${errors.email ? 'border-red-500 dark:border-red-500' : ''}`}
                         type="email"
                         placeholder="john@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
+                      {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-[#E3DCD5] mb-2">
                       Message
                     </label>
                     <Textarea
                       placeholder="Tell me about your project..."
-                      className="border-gray-200 dark:border-gray-700 focus:border-blue-500 min-h-[120px]"
+                      className={`border-gray-200 dark:bg-[#3A3A3A] dark:border-[#4A4A4A] dark:text-[#E3DCD5] dark:placeholder:text-[#857F75]/70 focus:dark:border-[#A89A7D] min-h-[120px] ${errors.message ? 'border-red-500 dark:border-red-500' : ''}`}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                     />
+                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                   </div>
 
-                  <Button className="w-full hover:bg-[#A89A7D] text-white py-3 rounded-lg font-bold bg-[#BFB399] dark:bg-[#8F836B] dark:hover:from-slate-800 dark:hover:to-neutral-800">
+                  <Button 
+                    type="submit"
+                    className="w-full hover:bg-[#A89A7D] text-white py-3 rounded-lg font-bold bg-[#BFB399] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] transition-colors duration-300"
+                  >
                     Send Message
                   </Button>
                 </form>
               </CardContent>
             </Card>
+            
+            {/* Success Dialog */}
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogContent className="bg-white dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
+                <DialogHeader>
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#A89A7D]/20 dark:bg-[#A89A7D]/30 mb-4">
+                    <CheckCircle className="h-6 w-6 text-[#A89A7D] dark:text-[#D8CFBC]" />
+                  </div>
+                  <DialogTitle className="text-center text-xl font-semibold text-gray-900 dark:text-[#E3DCD5]">
+                    Message Sent Successfully
+                  </DialogTitle>
+                  <DialogDescription className="text-center text-gray-600 dark:text-[#D8CFBC]/80 mt-2">
+                    Thank you for reaching out! I'll get back to you as soon as possible.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="mt-5 sm:mt-6">
+                  <Button 
+                    onClick={() => setIsDialogOpen(false)}
+                    className="w-full bg-[#BFB399] hover:bg-[#A89A7D] dark:bg-[#857F75] dark:hover:bg-[#A89A7D] text-white transition-colors duration-300"
+                  >
+                    Close
+                  </Button>
+                </div>
+              </DialogContent>
+            </Dialog>
 
             {/* Contact Info */}
-            <Card className="p-6 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+            <Card className="p-6 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
               <CardContent className="p-0 space-y-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5]">
                   Get In Touch
                 </h3>
                 <div className="space-y-4">
@@ -756,10 +843,10 @@ export default function HomePage() {
                       <Mail className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900 dark:text-gray-100">
+                      <p className="font-medium text-gray-900 dark:text-[#E3DCD5]">
                         Email
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600 dark:text-[#D8CFBC]/80">
                         tirtha.jain@example.com
                       </p>
                     </div>
@@ -770,10 +857,10 @@ export default function HomePage() {
                       <Phone className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900 dark:text-gray-100">
+                      <p className="font-medium text-gray-900 dark:text-[#E3DCD5]">
                         Phone
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600 dark:text-[#D8CFBC]/80">
                         +1 (555) 123-4567
                       </p>
                     </div>
@@ -784,10 +871,10 @@ export default function HomePage() {
                       <MapPin className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900 dark:text-gray-100">
+                      <p className="font-medium text-gray-900 dark:text-[#E3DCD5]">
                         Location
                       </p>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600 dark:text-[#D8CFBC]/80">
                         New York, NY
                       </p>
                     </div>

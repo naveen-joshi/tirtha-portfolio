@@ -255,7 +255,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   <Calendar className="w-5 h-5 text-[#A89A7D] dark:text-[#BFB399]" />
                   <div>
                     <p className="text-sm text-gray-500">Year</p>
-                    <p className="font-medium text-gray-900">{project.year}</p>
+                    <p className="font-medium text-gray-900 dark:text-white">{project.year}</p>
                   </div>
                 </div>
               </div>
@@ -345,33 +345,33 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             {/* Sidebar */}
             <div className="space-y-8">
               {/* Project Info */}
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Project Info</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5] mb-4">Project Info</h3>
                   <div className="space-y-4">
                     <div>
-                      <p className="text-sm text-gray-500 mb-1">Duration</p>
-                      <p className="font-medium text-gray-900 dark:text-white">{project.duration}</p>
+                      <p className="text-sm text-gray-500 dark:text-[#A89A7D] mb-1">Duration</p>
+                      <p className="font-medium text-gray-900 dark:text-[#E3DCD5]">{project.duration}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 mb-1">Category</p>
-                      <p className="font-medium text-gray-900 dark:text-white">{project.category}</p>
+                      <p className="text-sm text-gray-500 dark:text-[#A89A7D] mb-1">Category</p>
+                      <p className="font-medium text-gray-900 dark:text-[#E3DCD5]">{project.category}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 mb-1">Year</p>
-                      <p className="font-medium text-gray-900 dark:text-white">{project.year}</p>
+                      <p className="text-sm text-gray-500 dark:text-[#A89A7D] mb-1">Year</p>
+                      <p className="font-medium text-gray-900 dark:text-[#E3DCD5]">{project.year}</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Tags */}
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Tags</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5] mb-4">Tags</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, index) => (
-                      <Badge key={index} variant="outline">
+                      <Badge key={index} variant="outline" className="dark:bg-[#3A3A3A] dark:text-[#D8CFBC] dark:border-[#4A4A4A] dark:hover:border-[#A89A7D]">
                         {tag}
                       </Badge>
                     ))}
@@ -380,14 +380,14 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
               </Card>
 
               {/* Tools Used */}
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg dark:bg-[#2A2A2A] dark:border dark:border-[#3A3A3A]">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Tools Used</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-[#E3DCD5] mb-4">Tools Used</h3>
                   <div className="space-y-2">
                     {project.tools.map((tool, index) => (
                       <div key={index} className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-[#A89A7D] dark:bg-[#BFB399] rounded-full"></div>
-                        <span className="text-gray-700 dark:text-gray-300">{tool}</span>
+                        <span className="text-gray-700 dark:text-[#D8CFBC]">{tool}</span>
                       </div>
                     ))}
                   </div>
