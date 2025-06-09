@@ -98,11 +98,11 @@ export function ProjectCarousel() {
           </Button>
 
           {/* Enhanced Gradient Overlay - bottom 20% only */}
-          <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
+          {/* <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" /> */}
 
           {/* Content with improved visibility */}
-          <div className="absolute bottom-0 left-0 right-0 p-3 text-white z-10">
-            <div className="flex items-end justify-between w-full px-4 py-3 backdrop-blur-sm bg-black/20 border-t border-white/10">
+          <div className="absolute bottom-0 left-0 right-0 text-white z-10">
+            <div className="flex items-center justify-between w-full px-4 py-2 bg-[#857F75]/40 border-t border-[#E3DCD5]/20">
               <div>
                 <div className="inline-block px-2 py-0.5 rounded-full bg-[#A89A7D] text-white text-xs font-medium mb-1">
                   {featuredProjects[currentIndex].category}

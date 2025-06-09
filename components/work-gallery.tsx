@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -79,14 +79,49 @@ const getCategoryColor = (category: string): string => {
 export function WorkGallery() {
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [lastScrollPosition, setLastScrollPosition] = useState(0);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      setScrollPosition(scrollContainerRef.current.scrollLeft);
+      setLastScrollPosition(scrollContainerRef.current.scrollLeft);
+    }
+  };
   
+  // Debounced scroll handler
+  const handleMouseEnter = (index: number) => {
+    // Clear any existing scroll timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = null;
+    }
+    
+    // Immediately pause the animation
+    setIsPaused(true);
+    
+    // Set the hovered item after a small delay to ensure scroll has stopped
+    setTimeout(() => {
+      setHoveredItem(index);
+    }, 50);
+  };
+  
+  const handleMouseLeave = () => {
+    setHoveredItem(null);
+    
+    // Use a timeout to restart animation after mouse leaves
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 200);
+  };
+
   // Duplicate the gallery array to create the infinite scroll effect
   const duplicatedGallery = [...workGallery, ...workGallery, ...workGallery];
 
   // Handle manual scrolling
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+  const handleScrollManual = (e: React.UIEvent<HTMLDivElement>) => {
     setScrollPosition(e.currentTarget.scrollLeft);
     // Pause auto-scrolling while user is manually scrolling
     setIsPaused(true);
@@ -131,9 +166,9 @@ export function WorkGallery() {
           {duplicatedGallery.map((item, index) => (
             <div 
               key={`${item.id}-${index}`} 
-              className={`flex-shrink-0 transition-all duration-300 ${hoveredItem === index ? 'scale-105 z-20' : ''}`}
-              onMouseEnter={() => setHoveredItem(index)}
-              onMouseLeave={() => setHoveredItem(null)}
+              className={`flex-shrink-0 transition-all duration-500 ${hoveredItem === index ? 'scale-105 z-20' : ''}`}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
             >
               <Link href="#portfolio" className="group">
                 <div className="relative overflow-hidden rounded-lg shadow-lg">
