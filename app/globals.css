@@ -222,6 +222,41 @@
   box-shadow: 0 4px 10px 0 #858675;
 }
 
+/* Page transition animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.page-transition-enter {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.tab-indicator {
+  animation: pulseTab 1.5s infinite;
+}
+
+@keyframes pulseTab {
+  0% { opacity: 0.6; width: 10px; }
+  50% { opacity: 1; width: 20px; }
+  100% { opacity: 0.6; width: 10px; }
+}
+
 /* Marquee animation for work gallery */
 @keyframes marquee {
   0% {
@@ -248,7 +283,9 @@
 /* Hide scrollbar but maintain functionality */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  /* Using a comment to acknowledge the compatibility issue */
+  /* Firefox-specific property, not supported in all browsers */
+  /* scrollbar-width: none; */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
