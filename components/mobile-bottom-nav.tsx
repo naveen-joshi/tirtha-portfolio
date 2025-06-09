@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Briefcase, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Home, User, Briefcase } from "lucide-react";
 
 interface NavItem {
   name: string;
@@ -15,44 +14,13 @@ interface NavItem {
 
 export function MobileBottomNav() {
   const pathname = usePathname();
-  const { setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  
-  // Only run after component is mounted to avoid hydration mismatch
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  
-  const toggleTheme = () => {
-    if (!mounted) return;
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  };
 
-  // Define base navigation items that don't depend on client-side state
-  const baseNavItems: NavItem[] = [
+  // Navigation items
+  const navItems: NavItem[] = [
     { name: "Home", href: "/", icon: <Home className="w-5 h-5" /> },
     { name: "About", href: "/about", icon: <User className="w-5 h-5" /> },
     { name: "Portfolio", href: "/portfolio", icon: <Briefcase className="w-5 h-5" /> },
   ];
-  
-  // Add theme toggle only after mounting to prevent hydration mismatch
-  const navItems: NavItem[] = [...baseNavItems];
-  if (mounted) {
-    navItems.push({ 
-      name: "Theme", 
-      href: "#", 
-      icon: resolvedTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />,
-      action: toggleTheme
-    });
-  } else {
-    // Add placeholder during server rendering
-    navItems.push({ 
-      name: "Theme", 
-      href: "#", 
-      icon: <Moon className="w-5 h-5" />,
-      action: toggleTheme
-    });
-  }
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-[#2A2A2A]/90 backdrop-blur-xl border-t border-gray-100/50 dark:border-[#3A3A3A] shadow-lg rounded-t-3xl">
